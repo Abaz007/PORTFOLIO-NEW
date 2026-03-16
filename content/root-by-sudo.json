@@ -1,0 +1,100 @@
+{
+  "slug": "root-by-sudo",
+  "meta": {
+    "title": "Root by Sudo",
+    "descriptor": "B2C fintech mobile app redesign",
+    "role": "Head of Design",
+    "timeline": "2022–2024",
+    "cover_image": "https://res.cloudinary.com/dbtws7amv/image/upload/w_600,h_400,c_fill,q_auto,f_auto/Cover_es952x.png"
+  },
+  "hero_image": "https://res.cloudinary.com/dbtws7amv/image/upload/w_1400,q_auto,f_auto/Hero_agulgc.png",
+  "blocks": [
+    {
+      "type": "stat_row",
+      "stats": [
+        { "value": "3×", "label": "Transaction volume growth", "sign": "positive" },
+        { "value": "25%", "label": "Drop in onboarding drop-off", "sign": "positive" },
+        { "value": "₦30M+", "label": "Monthly transactions processed", "sign": "positive" },
+        { "value": ">80", "label": "NPS score post-redesign", "sign": "positive" }
+      ]
+    },
+    {
+      "type": "section_heading",
+      "text": "Why it mattered",
+      "anchor": "why-it-mattered",
+      "symbol": "→"
+    },
+    {
+      "type": "paragraph",
+      "text": "Root by Sudo is a **B2C fintech app** serving underbanked Nigerians with savings, transfers, and bill payments. When I joined as Head of Design, the product had strong retention among existing users but was haemorrhaging new signups at onboarding — a problem the engineering team had been patching with dark patterns rather than fixing with good design."
+    },
+    {
+      "type": "paragraph",
+      "text": "The brief was deceptively simple: _reduce drop-off_. The underlying challenge was more nuanced — we needed to build trust with users who had been burned by informal savings schemes, while meeting CBN compliance requirements that made onboarding legally complex."
+    },
+    {
+      "type": "section_heading",
+      "text": "Research",
+      "anchor": "research",
+      "symbol": "◊"
+    },
+    {
+      "type": "paragraph",
+      "text": "I ran moderated usability sessions with 12 participants across Lagos and Abuja — mix of banked and unbanked users. Three patterns emerged immediately."
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "Trust signals were absent. Users didn't know if Root was a regulated bank or an informal app — and the UI gave no indication either way.",
+        "The BVN verification step created anxiety. Users didn't understand why a 'simple savings app' needed their bank number.",
+        "Progress was invisible. The 7-step onboarding had no progress indicator, so users quit assuming there was no end."
+      ]
+    },
+    {
+      "type": "blockquote",
+      "text": "I thought it was going to keep asking me for things forever. I just closed it.",
+      "attribution": "Research participant, Lagos"
+    },
+    {
+      "type": "section_heading",
+      "text": "The reframe",
+      "anchor": "the-reframe",
+      "symbol": "∞"
+    },
+    {
+      "type": "paragraph",
+      "text": "The team had been treating onboarding as a compliance hurdle to get through. I reframed it as the product's first promise to the user — the moment where Root either earns trust or loses it forever."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/abasifreke/image/upload/w_1000,q_auto,f_auto/v1/portfolio/root/before-after.png",
+      "alt": "Before and after comparison of Root onboarding flow",
+      "caption": "Before (left): 7 steps with no progress indication. After (right): 4 steps with trust signals at each gate.",
+      "width": "full"
+    },
+    {
+      "type": "section_heading",
+      "text": "Outcomes",
+      "anchor": "outcomes",
+      "symbol": "∑"
+    },
+    {
+      "type": "paragraph",
+      "text": "The redesigned onboarding launched in Q3 2023. Within 8 weeks, onboarding completion rate moved from **41% to 66%** — a 25-point improvement that directly translated into a 3× increase in transaction volume as the cohort activated."
+    },
+    {
+      "type": "stat_row",
+      "stats": [
+        { "value": "41%→66%", "label": "Onboarding completion", "sign": "positive" },
+        { "value": "8 weeks", "label": "Time to measurable impact", "sign": "neutral" }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "paragraph",
+      "text": "This project reinforced something I now treat as a design principle: _compliance requirements and good user experience are not in opposition_. The constraint is always also an opportunity to explain, reassure, and build trust."
+    }
+  ]
+}

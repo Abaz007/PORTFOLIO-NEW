@@ -1,0 +1,65 @@
+import type { Metadata } from "next";
+import { getAllSlugs, getCaseStudy, getAdjacentCaseStudies } from "@/lib/content";
+import { CaseStudyHero } from "@/components/case-study/CaseStudyHero";
+import { CaseStudyFooter } from "@/components/case-study/CaseStudyFooter";
+import { SidebarNav } from "@/components/layout/SidebarNav";
+import { BlockRenderer } from "@/components/case-study/BlockRenderer";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+// Step 1: Tell Next.js which slugs to pre-build
+export async function generateStaticParams() {
+  return getAllSlugs().map((slug) => ({ slug }));
+}
+
+// Step 2: Generate SEO metadata per page
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const study = getCaseStudy(slug);
+  return {
+    title:       study.meta.title,
+    description: study.meta.descriptor,
+    openGraph: {
+      title:       study.meta.title,
+      description: study.meta.descriptor,
+      images:      [{ url: study.meta.cover_image, width: 1200, height: 630 }],
+      type:        "article",
+    },
+    twitter: {
+      card:  "summary_large_image",
+      images: [study.meta.cover_image],
+    },
+  };
+}
+
+// Step 3: Render page
+export default async function CaseStudyPage({ params }: Props) {
+  const { slug } = await params;
+  const study    = getCaseStudy(slug);
+  const adjacent = getAdjacentCaseStudies(slug);
+
+  return (
+    <>
+      <CaseStudyHero
+        heroImage={study.hero_image}
+        title={study.meta.title}
+        role={study.meta.role}
+        timeline={study.meta.timeline}
+      />
+
+      <div className="cs-layout py-16">
+        {/* Sidebar: visible only on sidebar: breakpoint (≥1100px) */}
+        <SidebarNav blocks={study.blocks} />
+
+        {/* Reading column */}
+        <article className="cs-main">
+          <BlockRenderer blocks={study.blocks} />
+        </article>
+      </div>
+
+      <CaseStudyFooter prev={adjacent.prev} next={adjacent.next} />
+    </>
+  );
+}

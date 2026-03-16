@@ -1,0 +1,85 @@
+{
+  "slug": "safe-haven-mfb",
+  "meta": {
+    "title": "Safe Haven MFB",
+    "descriptor": "Core banking dashboard for a microfinance bank",
+    "role": "Lead Product Designer",
+    "timeline": "2021–2022",
+    "cover_image": "https://res.cloudinary.com/abasifreke/image/upload/w_600,h_400,c_fill,q_auto,f_auto/v1/portfolio/safe-haven/cover.png"
+  },
+  "hero_image": "https://res.cloudinary.com/abasifreke/image/upload/w_1400,q_auto,f_auto/v1/portfolio/safe-haven/hero.png",
+  "blocks": [
+    {
+      "type": "stat_row",
+      "stats": [
+        { "value": "60%", "label": "Reduction in loan processing time", "sign": "positive" },
+        { "value": "4→1", "label": "Systems consolidated", "sign": "positive" },
+        { "value": "200+", "label": "Bank staff trained on new UI", "sign": "neutral" }
+      ]
+    },
+    {
+      "type": "section_heading",
+      "text": "The context",
+      "anchor": "the-context",
+      "symbol": "→"
+    },
+    {
+      "type": "paragraph",
+      "text": "Safe Haven Microfinance Bank serves small business owners and traders across four states in Nigeria. Their operations team was managing loan approvals, account management, and compliance reporting across **four separate legacy systems** — some of them spreadsheet-based."
+    },
+    {
+      "type": "paragraph",
+      "text": "I was brought in to design a unified core banking dashboard that would consolidate these workflows into a single, auditable interface — and do it in a way that bank staff with varying levels of digital literacy could adopt without months of retraining."
+    },
+    {
+      "type": "section_heading",
+      "text": "Discovery",
+      "anchor": "discovery",
+      "symbol": "◊"
+    },
+    {
+      "type": "paragraph",
+      "text": "I spent two weeks embedded at a branch in Ikeja, shadowing loan officers, tellers, and the compliance team. The biggest insight was that the inefficiency wasn't in any single system — it was in the _handoffs_ between systems."
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "Loan applications were started in one system, verified in a second, and approved in a third — with email threads bridging the gaps.",
+        "Tellers had no visibility into a customer's loan status, leading to repeated customer explanations at the counter.",
+        "Compliance reports were assembled manually each month, taking 3 days and introducing transcription errors."
+      ]
+    },
+    {
+      "type": "section_heading",
+      "text": "Design approach",
+      "anchor": "design-approach",
+      "symbol": "∞"
+    },
+    {
+      "type": "paragraph",
+      "text": "I designed around a unified customer record — every touchpoint in the bank anchored to a single view of the customer. Loan officers, tellers, and compliance staff each had a role-specific view, but they were all looking at the same underlying data."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/abasifreke/image/upload/w_720,q_auto,f_auto/v1/portfolio/safe-haven/dashboard.png",
+      "alt": "Safe Haven MFB unified dashboard showing customer record with loan status, account balance, and transaction history",
+      "caption": "The unified customer record — visible to all roles, filtered by permission level.",
+      "width": "contained"
+    },
+    {
+      "type": "blockquote",
+      "text": "Before this, I had to open three tabs and cross-reference before I could answer a customer question. Now it's one screen.",
+      "attribution": "Senior Teller, Safe Haven MFB Ikeja branch"
+    },
+    {
+      "type": "section_heading",
+      "text": "Outcomes",
+      "anchor": "outcomes",
+      "symbol": "∑"
+    },
+    {
+      "type": "paragraph",
+      "text": "The dashboard shipped in Q4 2022 after a 3-month development sprint. Loan processing time dropped by 60% in the first quarter. The compliance team now generates their monthly reports in 4 hours rather than 3 days."
+    }
+  ]
+}
