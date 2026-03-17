@@ -1,21 +1,51 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import localFont from "next/font/local";
+import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "@/styles/globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/site.config";
+import { Agentation } from "agentation";
 
-// Body font — Inter (clean, readable sans-serif)
-const inter = Inter({
-  subsets: ["latin"],
+// Serif — Recoleta (local, multiple weights via woff2)
+const recoleta = localFont({
+  src: [
+    { path: "../public/recoleta-font/Recoleta-Light.woff2",    weight: "300", style: "normal" },
+    { path: "../public/recoleta-font/Recoleta-Regular.woff2",  weight: "400", style: "normal" },
+    { path: "../public/recoleta-font/Recoleta-Medium.woff2",   weight: "500", style: "normal" },
+    { path: "../public/recoleta-font/Recoleta-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "../public/recoleta-font/Recoleta-Bold.woff2",     weight: "700", style: "normal" },
+  ],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+// Body — Helvetica Neue (local, multiple weights via otf)
+const helveticaNeue = localFont({
+  src: [
+    { path: "../public/helvetica-neue/HelveticaNeueLight.otf",  weight: "300", style: "normal" },
+    { path: "../public/helvetica-neue/HelveticaNeueRoman.otf",  weight: "400", style: "normal" },
+    { path: "../public/helvetica-neue/HelveticaNeueMedium.otf", weight: "500", style: "normal" },
+    { path: "../public/helvetica-neue/HelveticaNeueBold.otf",   weight: "700", style: "normal" },
+    { path: "../public/helvetica-neue/HelveticaNeueLight.otf",   weight: "300", style: "normal" },
+    { path: "../public/helvetica-neue/HelveticaNeueLightItalic.otf", weight: "300", style: "italic" },
+    { path: "../public/helvetica-neue/HelveticaNeueItalic.ttf", weight: "400", style: "italic" },
+  ],
   variable: "--font-body",
   display: "swap",
 });
 
-// Display font — Fraunces (editorial serif for headings)
-const fraunces = Fraunces({
+// Inter — fallback body font loaded from Google Fonts
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-inter",
+  display: "swap",
+});
+
+// Bricolage Grotesque — used for the Let's Talk button
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage",
   display: "swap",
 });
 
@@ -41,11 +71,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
-      <body className="min-h-screen flex flex-col bg-white">
+    <html lang="en" className={`${recoleta.variable} ${helveticaNeue.variable} ${inter.variable} ${bricolage.variable}`}>
+      <body className="min-h-screen flex flex-col bg-[#121212]">
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
+        {process.env.NODE_ENV === "development" && <Agentation />}
       </body>
     </html>
   );

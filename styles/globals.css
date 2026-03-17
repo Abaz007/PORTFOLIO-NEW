@@ -4,7 +4,7 @@
 
 /* ── CSS Custom Properties ── */
 :root {
-  --nav-height:     60px;
+  --nav-height:     130px;
   --sidebar-width:  240px;
   --reading-width:  720px;
   --content-width:  1000px;
@@ -20,12 +20,70 @@
   }
 
   body {
-    @apply font-body text-ink antialiased;
+    font-family: var(--font-body), var(--font-inter), system-ui, sans-serif;
+    @apply text-ink antialiased;
+  }
+
+  h1, h2 {
+    font-family: var(--font-serif), Georgia, serif;
   }
 
   * {
     box-sizing: border-box;
   }
+}
+
+/* ── Page-load fade-up ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-overline {
+  opacity: 0;
+  animation: fade-up 0.6s ease-out 0.1s forwards;
+}
+
+.hero-headline {
+  opacity: 0;
+  animation: fade-up 0.7s ease-out 0.25s forwards;
+}
+
+.hero-links {
+  opacity: 0;
+  animation: fade-up 0.6s ease-out 0.45s forwards;
+}
+
+.work-card {
+  opacity: 0;
+  animation: fade-up 0.6s ease-out 0.6s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-overline, .hero-headline, .hero-links, .work-card {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ── Underline hover link ── */
+.underline-link {
+  position: relative;
+}
+
+.underline-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.underline-link:hover::after {
+  width: 100%;
 }
 
 /* ── Marquee animation ── */
