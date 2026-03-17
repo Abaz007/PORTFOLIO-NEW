@@ -3,31 +3,31 @@ import { siteConfig } from "@/site.config";
 
 export function Hero() {
   return (
-    <section
-      className="max-w-page mx-auto px-6 flex flex-col justify-end"
-      style={{ paddingTop: "calc(var(--nav-height) + 6rem)", paddingBottom: "5rem" }}
-    >
-      <p className="font-mono text-sm text-muted tracking-widest uppercase mb-6">
-        {siteConfig.owner.title}
-      </p>
+    <section className="max-w-page mx-auto px-6 py-24 lg:py-32">
 
-      <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-ink leading-tight tracking-tight mb-8 max-w-3xl">
+      {/* Headline */}
+      <h1 className="font-display font-light text-5xl sm:text-6xl lg:text-7xl text-ink leading-[1.12] tracking-[-0.02em] mb-8 max-w-4xl">
         {siteConfig.owner.tagline}
       </h1>
 
-      {/* Contact links */}
-      <div className="flex flex-wrap items-center gap-6">
+      {/* Bio */}
+      <p className="font-body text-base text-muted leading-[1.7] mb-10 max-w-xl">
+        {siteConfig.owner.bio}
+      </p>
+
+      {/* Links */}
+      <div className="flex flex-wrap items-center gap-7">
         <a
           href={`mailto:${siteConfig.owner.email}`}
-          className="text-sm text-muted hover:text-ink transition-colors duration-250 underline underline-offset-4"
+          className="text-sm text-muted hover:text-ink transition-colors duration-300 underline-link"
         >
-          {siteConfig.owner.email}
+          Email
         </a>
         <a
           href={siteConfig.owner.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-muted hover:text-ink transition-colors duration-250 underline underline-offset-4"
+          className="text-sm text-muted hover:text-ink transition-colors duration-300 underline-link"
         >
           LinkedIn
         </a>
@@ -35,17 +35,18 @@ export function Hero() {
           href={siteConfig.owner.resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-muted hover:text-ink transition-colors duration-250 underline underline-offset-4"
+          className="text-sm text-muted hover:text-ink transition-colors duration-300 underline-link"
         >
           Resume
         </a>
         <Link
           href="/about"
-          className="text-sm text-muted hover:text-ink transition-colors duration-250 underline underline-offset-4"
+          className="text-sm text-muted hover:text-ink transition-colors duration-300 underline-link"
         >
           About
         </Link>
       </div>
+
     </section>
   );
 }

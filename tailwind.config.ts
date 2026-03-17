@@ -11,9 +11,9 @@ export default {
 
       // ── TYPOGRAPHY ────────────────────────────────────────────
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
-        body:    ["var(--font-body)", "system-ui", "sans-serif"],
-        mono:    ["var(--font-mono)", "monospace"],
+        display: ["var(--font-serif)", "Georgia", "serif"],
+        body:    ["var(--font-body)", "var(--font-inter)", "system-ui", "sans-serif"],
+        mono:    ["var(--font-mono)", "ui-monospace", "monospace"],
       },
 
       // ── COLOURS ───────────────────────────────────────────────
