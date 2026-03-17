@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
+import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "@/styles/globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
@@ -42,6 +42,13 @@ const inter = Inter({
   display: "swap",
 });
 
+// Bricolage Grotesque — used for the Let's Talk button
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: `${siteConfig.owner.name} — ${siteConfig.owner.title}`,
@@ -64,8 +71,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${recoleta.variable} ${helveticaNeue.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col bg-white">
+    <html lang="en" className={`${recoleta.variable} ${helveticaNeue.variable} ${inter.variable} ${bricolage.variable}`}>
+      <body className="min-h-screen flex flex-col bg-[#121212]">
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

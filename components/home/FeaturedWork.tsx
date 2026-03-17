@@ -6,19 +6,11 @@ type Props = {
   caseStudies: CaseStudy[];
 };
 
-function WorkCard({ study, index }: { study: CaseStudy; index: number }) {
+function WorkCard({ study }: { study: CaseStudy }) {
   return (
-    <Link
-      href={`/case-study/${study.slug}`}
-      className="group block work-card"
-    >
-      {/* Index number */}
-      <p className="font-mono text-[11px] text-muted tracking-[0.18em] mb-4">
-        {String(index + 1).padStart(2, "0")}
-      </p>
-
-      {/* Cover image */}
-      <div className="relative w-full aspect-[4/3] overflow-hidden bg-ghost mb-5">
+    <Link href={`/case-study/${study.slug}`} className="group block">
+      {/* Cover image card */}
+      <div className="relative w-full h-[474px] bg-[#1e1e1e] rounded-[10px] overflow-hidden mb-4">
         <Image
           src={study.meta.cover_image}
           alt={study.meta.title}
@@ -28,22 +20,24 @@ function WorkCard({ study, index }: { study: CaseStudy; index: number }) {
         />
       </div>
 
-      {/* Text row */}
-      <div className="space-y-2">
-        <div className="flex items-baseline justify-between gap-4">
-          <h3 className="font-display text-[1.4rem] text-ink leading-snug">
+      {/* Card footer */}
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col leading-[1.73] tracking-[0.6px]">
+          <p className="font-body font-normal text-[14px] text-[#d4d4d4]">
             {study.meta.title}
-          </h3>
-          <span className="text-sm text-muted opacity-0 translate-x-[-4px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0">
-            View →
-          </span>
+          </p>
+          <p className="font-body font-light text-[14px] text-[#a3a3a3]">
+            {study.meta.descriptor}
+          </p>
         </div>
-        <p className="text-sm text-muted leading-relaxed">
-          {study.meta.descriptor}
-        </p>
-        <p className="font-mono text-[11px] text-muted/60 tracking-wide">
-          {study.meta.role} · {study.meta.timeline}
-        </p>
+        <div className="flex items-center gap-1 shrink-0 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+          <span className="font-body font-light text-[12px] text-[#a3a3a3] tracking-[0.6px] underline decoration-dotted underline-offset-2">
+            View Case Study
+          </span>
+          <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 15L15 6M15 6H8M15 6V13" stroke="#a3a3a3" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
       </div>
     </Link>
   );
@@ -51,15 +45,10 @@ function WorkCard({ study, index }: { study: CaseStudy; index: number }) {
 
 export function FeaturedWork({ caseStudies }: Props) {
   return (
-    <section className="max-w-page mx-auto px-6 pb-28">
-      {/* Section label */}
-      <p className="font-mono text-[11px] text-muted tracking-[0.18em] uppercase mb-14 border-t border-rule pt-10">
-        Selected work
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
-        {caseStudies.map((study, i) => (
-          <WorkCard key={study.slug} study={study} index={i} />
+    <section className="max-w-[1440px] mx-auto px-[72px] pb-28">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[36px] gap-y-14">
+        {caseStudies.map((study) => (
+          <WorkCard key={study.slug} study={study} />
         ))}
       </div>
     </section>

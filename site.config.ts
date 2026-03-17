@@ -7,9 +7,9 @@ export const siteConfig = {
   owner: {
     name:      "Abasifreke Emmanuel",
     title:     "Senior Product Designer",
-    tagline:   "I design complex systems that don't feel complex.",
+    tagline:   "A multidisciplinary designer who is shaping the world by crafting delightful experiences.",
     // ★ Edit this bio — appears below the headline on the homepage
-    bio:       "I'm Abasifreke, a Senior Product Designer based in Lagos. I've spent years designing for fintech, banking, and consumer products — bringing structure and craft to work that usually gets neither.",
+    bio:       "More than a decade of design experience, building and shipping complex infrastructure that businesses and millions of people rely on. My expertise spans multiple industries globally, from startups and agencies to enterprise-level organizations. I have led design efforts across several teams, redefining UX through strategic approaches, setting outcome-driven goals, growing design teams, and raising UX maturity across organizations. I specialize in high-stakes workflows where clarity is not optional but highly critical.",
     email:     "abasifreke55@gmail.com",
     linkedin:  "https://www.linkedin.com/in/abasifreke-emmanuel/",
     resumeUrl: "https://res.cloudinary.com/dbtws7amv/image/upload/Abasifreke_s_Resume_thsizp.pdf",

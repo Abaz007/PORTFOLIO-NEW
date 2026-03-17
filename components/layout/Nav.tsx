@@ -1,53 +1,41 @@
 import Link from "next/link";
 import { siteConfig } from "@/site.config";
-import { getFeaturedCaseStudies } from "@/lib/content";
 
 export function Nav() {
-  const featured = getFeaturedCaseStudies(siteConfig.featuredWork);
-
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-white/96 backdrop-blur-sm border-b border-rule"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#121212]/95 backdrop-blur-sm"
       style={{ height: "var(--nav-height)" }}
     >
-      <div className="max-w-page mx-auto px-6 h-full flex items-center justify-between gap-8">
+      <div className="max-w-[1440px] mx-auto px-[72px] py-5 h-full flex items-center justify-between">
 
-        {/* Logo */}
-        <Link
-          href="/"
-          className="font-display text-[1.05rem] text-ink hover:text-muted transition-colors duration-300 shrink-0"
-        >
-          {siteConfig.owner.name}
+        {/* Left — name + title */}
+        <Link href="/" className="flex flex-col gap-[2px] shrink-0">
+          <span className="font-body font-light text-[16px] text-[#d4d4d4] tracking-[0.6px] leading-[1.73]">
+            {siteConfig.owner.name}
+          </span>
+          <span className="font-body font-light text-[14px] text-[#737373] tracking-[0.6px] leading-[1.73]">
+            Product Designer
+          </span>
         </Link>
 
-        {/* Case study links — center */}
-        <nav className="hidden md:flex items-center gap-7 overflow-x-auto">
-          {featured.map((study) => (
-            <Link
-              key={study.slug}
-              href={`/case-study/${study.slug}`}
-              className="font-mono text-[11px] text-muted hover:text-ink transition-colors duration-300 tracking-[0.08em] whitespace-nowrap"
-            >
-              {study.meta.title}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Right side */}
-        <div className="flex items-center gap-6 shrink-0">
-          <Link
-            href="/about"
-            className="font-mono text-[11px] text-muted hover:text-ink transition-colors duration-300 tracking-[0.08em]"
-          >
-            About
-          </Link>
+        {/* Right — resume link + Let's Talk button */}
+        <div className="flex items-center gap-9 shrink-0">
           <a
             href={siteConfig.owner.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[11px] text-muted hover:text-ink transition-colors duration-300 tracking-[0.08em]"
+            className="font-body font-light text-[16px] text-[#a3a3a3] hover:text-[#d4d4d4] transition-colors duration-300"
           >
-            Resume
+            My Resume
+          </a>
+          <a
+            href={`mailto:${siteConfig.owner.email}`}
+            className="flex items-center justify-center border border-[#a3a3a3] rounded-[1000px] px-[24px] py-[14px] h-[85px] w-[199px] hover:border-[#d4d4d4] transition-colors duration-300 overflow-hidden shrink-0"
+          >
+            <span className="font-bricolage font-light text-[16px] text-[#a3a3a3] hover:text-[#d4d4d4] transition-colors duration-300 whitespace-nowrap">
+              Let&apos;s Talk
+            </span>
           </a>
         </div>
 

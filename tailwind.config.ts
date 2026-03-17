@@ -11,9 +11,10 @@ export default {
 
       // ── TYPOGRAPHY ────────────────────────────────────────────
       fontFamily: {
-        display: ["var(--font-serif)", "Georgia", "serif"],
-        body:    ["var(--font-body)", "var(--font-inter)", "system-ui", "sans-serif"],
-        mono:    ["var(--font-mono)", "ui-monospace", "monospace"],
+        display:    ["var(--font-serif)", "Georgia", "serif"],
+        body:       ["var(--font-body)", "var(--font-inter)", "system-ui", "sans-serif"],
+        mono:       ["var(--font-mono)", "ui-monospace", "monospace"],
+        bricolage:  ["var(--font-bricolage)", "system-ui", "sans-serif"],
       },
 
       // ── COLOURS ───────────────────────────────────────────────
