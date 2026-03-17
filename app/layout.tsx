@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/site.config";
+import { Agentation } from "agentation";
 
 // Body font — Inter (clean, readable sans-serif)
 const inter = Inter({
@@ -46,6 +47,7 @@ export default function RootLayout({
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
+        {process.env.NODE_ENV === "development" && <Agentation />}
       </body>
     </html>
   );
