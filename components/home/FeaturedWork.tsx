@@ -1,55 +1,168 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRef, useEffect, useCallback, useState } from "react";
 import type { CaseStudy } from "@/lib/types";
 
 type Props = {
   caseStudies: CaseStudy[];
 };
 
-function WorkCard({ study }: { study: CaseStudy }) {
-  return (
-    <Link href={`/case-study/${study.slug}`} className="group block">
-      {/* Cover image card */}
-      <div className="relative w-full h-[474px] bg-[#1e1e1e] rounded-[10px] overflow-hidden mb-4">
-        <Image
-          src={study.meta.cover_image}
-          alt={study.meta.title}
-          fill
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
+const CARD_H = 500;
+const CARD_W = 680;
+const GAP = 16;
+const SPEED = 1.2; // px per animation frame (~72px/s at 60fps)
 
-      {/* Card footer */}
-      <div className="flex items-center justify-between">
-        <div className="flex flex-col leading-[1.73] tracking-[0.6px]">
-          <p className="font-body font-normal text-[14px] text-[#d4d4d4]">
-            {study.meta.title}
-          </p>
-          <p className="font-body font-light text-[14px] text-[#a3a3a3]">
-            {study.meta.descriptor}
-          </p>
-        </div>
-        <div className="flex items-center gap-1 shrink-0 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-          <span className="font-body font-light text-[12px] text-[#a3a3a3] tracking-[0.6px] underline decoration-dotted underline-offset-2">
-            View Case Study
-          </span>
-          <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 15L15 6M15 6H8M15 6V13" stroke="#a3a3a3" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </div>
+function WorkCard({ study, tabIndex }: { study: CaseStudy; tabIndex: number }) {
+  return (
+    <Link
+      href={`/case-study/${study.slug}`}
+      className="group relative shrink-0 overflow-hidden rounded-[20px] bg-[#1e1e1e] block"
+      style={{ width: CARD_W, height: CARD_H }}
+      tabIndex={tabIndex}
+      draggable={false}
+    >
+      <Image
+        src={study.meta.cover_image}
+        alt={study.meta.title}
+        fill
+        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+        sizes="680px"
+        draggable={false}
+      />
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-6">
+        <p className="font-body font-normal text-[15px] text-white leading-tight">
+          {study.meta.title}
+        </p>
+        <p className="font-body font-light text-[13px] text-white/60 mt-1">
+          {study.meta.descriptor}
+        </p>
       </div>
     </Link>
   );
 }
 
 export function FeaturedWork({ caseStudies }: Props) {
+  const outerRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+  const isDragging = useRef(false);
+  const hasDragged = useRef(false);
+  const startX = useRef(0);
+  const startScroll = useRef(0);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const [isHoveringCard, setIsHoveringCard] = useState(false);
+  const mousePos = useRef({ x: 0, y: 0 });
+
+  // Repeat 4× so the strip fills ultra-wide viewports seamlessly
+  const repeated = [
+    ...caseStudies,
+    ...caseStudies,
+    ...caseStudies,
+    ...caseStudies,
+  ];
+
+  const animate = useCallback(() => {
+    const el = outerRef.current;
+    if (el && !isDragging.current) {
+      el.scrollLeft += SPEED;
+      // Seamless loop: reset when we've scrolled through half the total content
+      const half = el.scrollWidth / 2;
+      if (el.scrollLeft >= half) {
+        el.scrollLeft -= half;
+      }
+    }
+    rafRef.current = requestAnimationFrame(animate);
+  }, []);
+
+  useEffect(() => {
+    rafRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [animate]);
+
+  // Track mouse position for custom cursor
+  function onSectionMouseMove(e: React.MouseEvent<HTMLElement>) {
+    mousePos.current = { x: e.clientX, y: e.clientY };
+    if (cursorRef.current) {
+      cursorRef.current.style.left = `${e.clientX}px`;
+      cursorRef.current.style.top = `${e.clientY}px`;
+    }
+
+    // Also handle drag
+    if (!isDragging.current) return;
+    const dx = startX.current - e.clientX;
+    if (Math.abs(dx) > 4) hasDragged.current = true;
+    if (outerRef.current) outerRef.current.scrollLeft = startScroll.current + dx;
+  }
+
+  function onMouseDown(e: React.MouseEvent<HTMLDivElement>) {
+    isDragging.current = true;
+    hasDragged.current = false;
+    startX.current = e.clientX;
+    startScroll.current = outerRef.current?.scrollLeft ?? 0;
+  }
+
+  function onDragEnd() {
+    isDragging.current = false;
+  }
+
+  // Prevent link navigation when user was dragging (not just clicking)
+  function onClickCapture(e: React.MouseEvent) {
+    if (hasDragged.current) e.preventDefault();
+  }
+
   return (
-    <section className="max-w-[1440px] mx-auto px-[72px] pb-28">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[36px] gap-y-14">
-        {caseStudies.map((study) => (
-          <WorkCard key={study.slug} study={study} />
-        ))}
+    <section
+      className="pb-28 select-none relative"
+      onMouseMove={onSectionMouseMove}
+      onMouseLeave={() => {
+        setIsHoveringCard(false);
+        onDragEnd();
+      }}
+    >
+      {/* Custom cursor */}
+      <div
+        ref={cursorRef}
+        className="pointer-events-none fixed z-50 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
+        style={{ opacity: isHoveringCard && !isDragging.current ? 1 : 0 }}
+      >
+        <div className="bg-white text-[#121212] font-mono font-light text-[13px] tracking-[0.3px] px-4 py-2 rounded-full whitespace-nowrap shadow-lg">
+          View Case Study
+        </div>
+      </div>
+
+      <div
+        ref={outerRef}
+        className="overflow-x-scroll overflow-y-hidden"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          cursor: "none",
+        } as React.CSSProperties}
+        onMouseDown={onMouseDown}
+        onMouseUp={onDragEnd}
+        onClickCapture={onClickCapture}
+        onMouseEnter={() => setIsHoveringCard(true)}
+        onMouseLeave={() => setIsHoveringCard(false)}
+      >
+        <div
+          style={{
+            display: "flex",
+            gap: GAP,
+            width: "max-content",
+            paddingLeft: GAP,
+            paddingRight: GAP,
+          }}
+        >
+          {repeated.map((study, i) => (
+            <WorkCard
+              key={`${study.slug}-${i}`}
+              study={study}
+              tabIndex={i < caseStudies.length ? 0 : -1}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

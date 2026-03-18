@@ -86,6 +86,9 @@
   width: 100%;
 }
 
+/* ── Hide scrollbar on drag-scroll strip ── */
+.overflow-x-scroll::-webkit-scrollbar { display: none; }
+
 /* ── Marquee animation ── */
 @keyframes marquee-left {
   from { transform: translateX(0); }
@@ -97,7 +100,7 @@
   to   { transform: translateX(0); }
 }
 
-.marquee-track-left  { animation: marquee-left  40s linear infinite; }
+.marquee-track-left  { animation: marquee-left  60s linear infinite; }
 .marquee-track-right { animation: marquee-right 50s linear infinite; }
 
 .marquee-row:hover .marquee-track-left,

@@ -37,7 +37,7 @@ export function Hero() {
       </p>
 
       {/* Section label */}
-      <p className="font-body font-normal text-[14px] text-[#d4d4d4] tracking-[0.6px] leading-[1.73] uppercase">
+      <p className="font-mono font-light text-[14px] text-[#d4d4d4] tracking-[0.6px] leading-[1.73] uppercase">
         Selected Projects
       </p>
 

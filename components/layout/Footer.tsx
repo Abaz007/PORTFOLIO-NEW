@@ -30,7 +30,7 @@ export function Footer() {
             href={`mailto:${siteConfig.owner.email}`}
             className="font-body font-light text-[14px] text-[#a3a3a3] hover:text-[#d4d4d4] transition-colors duration-300 tracking-[0.6px]"
           >
-            {siteConfig.owner.email}
+            Email Me
           </a>
         </div>
       </div>

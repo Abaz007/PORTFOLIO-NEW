@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Inter, Bricolage_Grotesque } from "next/font/google";
+import { Inter, Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
@@ -49,6 +49,14 @@ const bricolage = Bricolage_Grotesque({
   display: "swap",
 });
 
+// JetBrains Mono — used for section labels (e.g. "SELECTED PROJECTS")
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["300"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: `${siteConfig.owner.name} — ${siteConfig.owner.title}`,
@@ -71,7 +79,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${recoleta.variable} ${helveticaNeue.variable} ${inter.variable} ${bricolage.variable}`}>
+    <html lang="en" className={`${recoleta.variable} ${helveticaNeue.variable} ${inter.variable} ${bricolage.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen flex flex-col bg-[#121212]">
         <Nav />
         <main className="flex-1">{children}</main>
