@@ -1,3 +1,3 @@
 export function Divider() {
-  return <hr className="border-rule my-4" />;
+  return <div className="h-px bg-[#171717]" />;
 }

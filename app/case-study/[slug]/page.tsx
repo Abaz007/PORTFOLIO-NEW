@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getAllSlugs, getCaseStudy, getAdjacentCaseStudies } from "@/lib/content";
 import { CaseStudyHero } from "@/components/case-study/CaseStudyHero";
 import { CaseStudyFooter } from "@/components/case-study/CaseStudyFooter";
-import { SidebarNav } from "@/components/layout/SidebarNav";
 import { BlockRenderer } from "@/components/case-study/BlockRenderer";
 
 type Props = {
@@ -45,16 +44,14 @@ export default async function CaseStudyPage({ params }: Props) {
       <CaseStudyHero
         heroImage={study.hero_image}
         title={study.meta.title}
+        descriptor={study.meta.descriptor}
         role={study.meta.role}
         timeline={study.meta.timeline}
       />
 
-      <div className="cs-layout py-16">
-        {/* Sidebar: visible only on sidebar: breakpoint (≥1100px) */}
-        <SidebarNav blocks={study.blocks} />
-
-        {/* Reading column */}
-        <article className="cs-main">
+      {/* Reading column — centered, no sidebar */}
+      <div className="max-w-reading mx-auto px-6 py-16">
+        <article>
           <BlockRenderer blocks={study.blocks} />
         </article>
       </div>

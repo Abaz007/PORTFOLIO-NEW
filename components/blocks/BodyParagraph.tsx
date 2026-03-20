@@ -14,7 +14,7 @@ function parseInline(text: string): React.ReactNode[] {
     }
 
     if (match[0].startsWith("**")) {
-      parts.push(<strong key={match.index} className="font-semibold text-ink">{match[2]}</strong>);
+      parts.push(<strong key={match.index} className="font-semibold text-[#d4d4d4]">{match[2]}</strong>);
     } else {
       parts.push(<em key={match.index} className="italic">{match[3]}</em>);
     }
@@ -31,7 +31,7 @@ function parseInline(text: string): React.ReactNode[] {
 
 export function BodyParagraph({ text }: ParagraphBlock) {
   return (
-    <p className="text-ink leading-[1.75] text-base">
+    <p className="font-body text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.3px]">
       {parseInline(text)}
     </p>
   );

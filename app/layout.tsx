@@ -75,8 +75,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal?:   React.ReactNode;
 }) {
   return (
     <html lang="en" className={`${recoleta.variable} ${helveticaNeue.variable} ${inter.variable} ${bricolage.variable} ${jetbrainsMono.variable}`}>
@@ -84,6 +86,7 @@ export default function RootLayout({
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
+        {modal}
         {process.env.NODE_ENV === "development" && <Agentation />}
       </body>
     </html>

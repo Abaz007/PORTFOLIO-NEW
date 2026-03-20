@@ -1,52 +1,60 @@
-import Image from "next/image";
-import Link from "next/link";
 
 type Props = {
-  heroImage: string;
-  title:     string;
-  role:      string;
-  timeline:  string;
+  heroImage:    string;
+  title:        string;
+  descriptor:   string;
+  role:         string;
+  timeline:     string;
+  noNavOffset?: boolean;
 };
 
-export function CaseStudyHero({ heroImage, title, role, timeline }: Props) {
+export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, noNavOffset }: Props) {
   return (
-    <div style={{ paddingTop: "var(--nav-height)" }}>
-      {/* Full-width hero image */}
-      <div className="relative w-full h-[55vh] min-h-[320px] max-h-[640px] bg-ghost">
-        <Image
-          src={heroImage}
-          alt={title}
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-      </div>
+    <div style={noNavOffset ? {} : { paddingTop: "var(--nav-height)" }} className="pt-12 pb-0">
+      <div className="max-w-reading mx-auto px-6">
 
-      {/* Metadata strip */}
-      <div className="max-w-page mx-auto px-6 py-8 border-b border-rule">
-        <Link
-          href="/"
-          className="text-sm text-muted hover:text-ink transition-colors duration-250 mb-6 inline-block"
-        >
-          ← All projects
-        </Link>
-
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-          <h1 className="font-display text-4xl sm:text-5xl text-ink leading-tight">
+        {/* OVERVIEW label + title */}
+        <div className="flex flex-col gap-4">
+          <p className="font-body text-[13px] text-[#737373] tracking-[0.6px] leading-[1.73] uppercase">
+            Overview
+          </p>
+          <h1 className="font-display text-[36px] text-[#d4d4d4] leading-[1.4]">
             {title}
           </h1>
-          <dl className="flex gap-8 shrink-0">
-            <div>
-              <dt className="text-xs text-muted font-mono uppercase tracking-widest mb-1">Role</dt>
-              <dd className="text-sm text-ink">{role}</dd>
-            </div>
-            <div>
-              <dt className="text-xs text-muted font-mono uppercase tracking-widest mb-1">Timeline</dt>
-              <dd className="text-sm text-ink">{timeline}</dd>
-            </div>
-          </dl>
         </div>
+
+        {/* Hero image */}
+        <div className="mt-6 w-full overflow-hidden rounded-sm bg-[#1a1a1a]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={heroImage}
+            alt={title}
+            className="w-full h-auto block"
+          />
+        </div>
+
+        {/* Descriptor */}
+        {descriptor && (
+          <p className="mt-6 font-body text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.3px]">
+            {descriptor}
+          </p>
+        )}
+
+        {/* MY ROLE + TIMELINE */}
+        <div className="mt-8 flex flex-col gap-4">
+          <p className="font-body text-[13px] text-[#737373] tracking-[0.6px] leading-[1.73] uppercase">
+            My Role
+          </p>
+          <p className="font-body text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.3px]">
+            {role}
+            {timeline && (
+              <span className="ml-2 text-[#737373]">· {timeline}</span>
+            )}
+          </p>
+        </div>
+
+        {/* Divider before blocks */}
+        <div className="mt-12 h-px bg-[#171717]" />
       </div>
     </div>
   );

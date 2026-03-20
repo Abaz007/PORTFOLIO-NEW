@@ -6,7 +6,7 @@ export function ImageBlock({ src, alt, caption, width }: ImageBlockType) {
 
   return (
     <figure className={isFull ? "img-full" : "w-full max-w-reading"}>
-      <div className="relative w-full overflow-hidden bg-ghost" style={{ aspectRatio: "auto" }}>
+      <div className="relative w-full overflow-hidden rounded-sm bg-[#1a1a1a]">
         {/* Use a regular img for arbitrary aspect ratios from Cloudinary */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -17,7 +17,7 @@ export function ImageBlock({ src, alt, caption, width }: ImageBlockType) {
         />
       </div>
       {caption && (
-        <figcaption className="mt-3 text-sm text-muted text-center">
+        <figcaption className="mt-3 font-body text-[13px] text-[#737373] tracking-[0.3px] text-center">
           {caption}
         </figcaption>
       )}

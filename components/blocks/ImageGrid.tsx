@@ -13,10 +13,10 @@ export function ImageGrid({ columns, images }: ImageGridBlock) {
             src={img.src}
             alt={img.alt}
             loading="lazy"
-            className="w-full h-auto block bg-ghost"
+            className="w-full h-auto block bg-[#1a1a1a] rounded-sm"
           />
           {img.caption && (
-            <figcaption className="mt-2 text-xs text-muted text-center">
+            <figcaption className="mt-2 font-body text-[13px] text-[#737373] tracking-[0.3px] text-center">
               {img.caption}
             </figcaption>
           )}

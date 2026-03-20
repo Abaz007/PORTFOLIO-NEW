@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { CaseStudy } from "@/lib/types";
 
 type Props = {
@@ -7,73 +6,39 @@ type Props = {
   next: CaseStudy | null;
 };
 
-function NavCard({
-  study,
-  direction,
-}: {
-  study: CaseStudy;
-  direction: "prev" | "next";
-}) {
-  return (
-    <Link
-      href={`/case-study/${study.slug}`}
-      className="group flex items-center gap-4 flex-1 p-6 border border-rule hover:border-ink transition-colors duration-250"
-    >
-      {direction === "prev" && (
-        <span className="text-muted group-hover:text-ink transition-colors duration-250 shrink-0 text-lg">
-          ←
-        </span>
-      )}
-
-      <div className="relative w-16 h-10 bg-ghost overflow-hidden shrink-0">
-        <Image
-          src={study.meta.cover_image}
-          alt={study.meta.title}
-          fill
-          className="object-cover"
-          sizes="64px"
-        />
-      </div>
-
-      <div className="flex-1 min-w-0">
-        <p className="text-xs text-muted font-mono uppercase tracking-widest mb-0.5">
-          {direction === "prev" ? "Previous" : "Next"}
-        </p>
-        <p className="text-sm font-medium text-ink truncate group-hover:text-accent transition-colors duration-250">
-          {study.meta.title}
-        </p>
-      </div>
-
-      {direction === "next" && (
-        <span className="text-muted group-hover:text-ink transition-colors duration-250 shrink-0 text-lg">
-          →
-        </span>
-      )}
-    </Link>
-  );
-}
-
 export function CaseStudyFooter({ prev, next }: Props) {
-  if (!prev && !next) return null;
-
   return (
-    <nav
-      aria-label="Case study navigation"
-      className="border-t border-rule"
-    >
-      <div className="max-w-page mx-auto px-6 py-12">
-        <p className="font-mono text-sm text-muted tracking-widest uppercase mb-6">
-          More work
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          {prev ? (
-            <NavCard study={prev} direction="prev" />
-          ) : (
-            <div className="flex-1" />
-          )}
-          {next && <NavCard study={next} direction="next" />}
-        </div>
+    <div className="max-w-reading mx-auto px-6 pt-16 pb-24">
+      <h2 className="font-display text-[36px] text-[#d4d4d4] leading-[1.4] mb-14">
+        Thanks for Reading
+      </h2>
+
+      <div className="h-px bg-[#262626]" />
+
+      <div className="flex items-center justify-between mt-6">
+        <Link
+          href="/"
+          className="font-body text-[13px] text-[#737373] tracking-[0.6px] leading-[1.73] uppercase underline decoration-dotted hover:text-[#d4d4d4] transition-colors duration-250"
+        >
+          All Projects
+        </Link>
+
+        {next ? (
+          <Link
+            href={`/case-study/${next.slug}`}
+            className="font-body text-[13px] text-[#737373] tracking-[0.6px] leading-[1.73] uppercase underline decoration-dotted hover:text-[#d4d4d4] transition-colors duration-250"
+          >
+            Next Project
+          </Link>
+        ) : prev ? (
+          <Link
+            href={`/case-study/${prev.slug}`}
+            className="font-body text-[13px] text-[#737373] tracking-[0.6px] leading-[1.73] uppercase underline decoration-dotted hover:text-[#d4d4d4] transition-colors duration-250"
+          >
+            Prev Project
+          </Link>
+        ) : null}
       </div>
-    </nav>
+    </div>
   );
 }

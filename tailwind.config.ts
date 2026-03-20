@@ -51,6 +51,22 @@ export default {
         "250": "250ms",
       },
 
+      // ── ANIMATIONS ────────────────────────────────────────────
+      animation: {
+        "sheet-up":  "sheet-up 0.5s cubic-bezier(0.32, 0.72, 0, 1) both",
+        "fade-in":   "fade-in 0.3s ease both",
+      },
+      keyframes: {
+        "sheet-up": {
+          "0%":   { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        "fade-in": {
+          "0%":   { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+
     },
   },
   plugins: [],
