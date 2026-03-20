@@ -78,7 +78,7 @@ export default function RootLayout({
   modal,
 }: {
   children: React.ReactNode;
-  modal?:   React.ReactNode;
+  modal:    React.ReactNode;
 }) {
   return (
     <html lang="en" className={`${recoleta.variable} ${helveticaNeue.variable} ${inter.variable} ${bricolage.variable} ${jetbrainsMono.variable}`}>

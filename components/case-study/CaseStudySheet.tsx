@@ -8,17 +8,16 @@ import { CaseStudyFooter } from "./CaseStudyFooter";
 import { BlockRenderer } from "./BlockRenderer";
 
 type Props = {
-  study:    CaseStudy;
-  prev:     CaseStudy | null;
-  next:     CaseStudy | null;
+  study: CaseStudy;
+  prev:  CaseStudy | null;
+  next:  CaseStudy | null;
 };
 
 export function CaseStudySheet({ study, prev, next }: Props) {
   const router = useRouter();
-
   const close = useCallback(() => router.back(), [router]);
 
-  // Lock background scroll while sheet is open
+  // Lock background scroll while modal is open
   useEffect(() => {
     const original = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -34,33 +33,32 @@ export function CaseStudySheet({ study, prev, next }: Props) {
 
   return (
     <>
-      {/* Backdrop */}
+      {/* Backdrop — rgba(30,30,30,0.9) per Figma, sits above the nav */}
       <div
-        className="fixed inset-0 z-40 bg-black/60 animate-fade-in cursor-pointer"
+        className="fixed inset-0 z-[55] backdrop-in cursor-pointer"
+        style={{ background: "rgba(30, 30, 30, 0.92)" }}
         onClick={close}
         aria-hidden="true"
       />
 
-      {/* Sheet */}
+      {/* Modal card — 72px margins on desktop, 12px on mobile */}
       <div
         role="dialog"
         aria-modal="true"
         aria-label={study.meta.title}
-        className="fixed inset-x-0 bottom-0 z-50 h-[95vh] bg-[#121212] rounded-t-[20px] overflow-hidden animate-sheet-up"
+        className="fixed z-[60] top-4 bottom-4 left-3 right-3 md:left-[72px] md:right-[72px] bg-[#121212] rounded-[20px] overflow-hidden modal-appear"
+        style={{ boxShadow: "0px 4px 30px 0px rgba(0, 0, 0, 0.3)" }}
       >
-        {/* Close button */}
+        {/* Close button — top right of the card */}
         <button
           onClick={close}
           aria-label="Close case study"
-          className="fixed top-5 right-5 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-[#1f1f1f] text-[#737373] hover:text-[#d4d4d4] hover:bg-[#2a2a2a] transition-colors duration-250 text-lg leading-none"
+          className="absolute top-5 right-5 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-[#1f1f1f] text-[#737373] hover:text-[#d4d4d4] hover:bg-[#2a2a2a] transition-colors duration-250 text-xl leading-none"
         >
           ×
         </button>
 
-        {/* Drag handle */}
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-1 rounded-full bg-[#2a2a2a]" aria-hidden="true" />
-
-        {/* Scrollable content */}
+        {/* Scrollable content inside the card */}
         <div className="h-full overflow-y-auto overscroll-contain">
           <CaseStudyHero
             heroImage={study.hero_image}
