@@ -1,11 +1,12 @@
 {
   "slug": "nova-pay",
   "meta": {
-    "title": "Nova Pay",
-    "descriptor": "Payments infrastructure for emerging markets",
+    "title": "Safehaven IBS Redesign",
+    "descriptor": "The Journey",
     "role": "Lead Product Designer",
     "timeline": "2024–2025",
-    "cover_image": "https://placehold.co/2040x1500/1e1e1e/525252?text=Nova+Pay"
+    "cover_image": "https://placehold.co/2040x1500/1e1e1e/525252?text=Safehaven+IBS",
+    "cover_video": "https://res.cloudinary.com/dbtws7amv/video/upload/w_1360,h_1000,c_fill,q_auto:good,f_mp4,br_1500k/v1774021109/main_files_2_w82er8.mov"
   },
   "hero_image": "https://placehold.co/1400x700/1e1e1e/525252?text=Nova+Pay+Hero",
   "blocks": [

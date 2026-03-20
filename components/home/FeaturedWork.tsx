@@ -23,14 +23,27 @@ function WorkCard({ study, tabIndex }: { study: CaseStudy; tabIndex: number }) {
       tabIndex={tabIndex}
       draggable={false}
     >
-      <Image
-        src={study.meta.cover_image}
-        alt={study.meta.title}
-        fill
-        unoptimized
-        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-        draggable={false}
-      />
+      {study.meta.cover_video ? (
+        <video
+          src={study.meta.cover_video}
+          poster={study.meta.cover_image}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+        />
+      ) : (
+        <Image
+          src={study.meta.cover_image}
+          alt={study.meta.title}
+          fill
+          unoptimized
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          draggable={false}
+        />
+      )}
       {/* Hover overlay */}
       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-6">
         <p className="font-body font-normal text-[15px] text-white leading-tight">
@@ -127,7 +140,7 @@ export function FeaturedWork({ caseStudies }: Props) {
         className="pointer-events-none fixed z-50 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
         style={{ opacity: isHoveringCard && !isDragging.current ? 1 : 0 }}
       >
-        <div className="bg-white text-[#121212] font-mono font-light text-[13px] tracking-[0.3px] px-4 py-2 rounded-full whitespace-nowrap shadow-lg">
+        <div className="bg-[#121212] text-white font-mono font-light text-[13px] tracking-[0.3px] px-5 py-3 rounded-full whitespace-nowrap">
           View Case Study
         </div>
       </div>

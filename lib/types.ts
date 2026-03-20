@@ -13,6 +13,7 @@ export type CaseStudyMeta = {
   role:         string;               // "Head of Design"
   timeline:     string;               // "2022–2024"
   cover_image:  string;               // Cloudinary URL — thumbnail used on homepage grid card
+  cover_video?: string;               // Cloudinary video URL — if set, plays instead of cover_image on homepage card
 };
 
 // ─── BLOCK TYPES ─────────────────────────────────────────────────────────────
