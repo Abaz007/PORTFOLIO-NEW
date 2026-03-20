@@ -1,0 +1,30 @@
+{
+  "slug": "atlas-hq",
+  "meta": {
+    "title": "Atlas HQ",
+    "descriptor": "Enterprise workspace management platform",
+    "role": "Senior Product Designer",
+    "timeline": "2023–2024",
+    "cover_image": "https://placehold.co/2040x1500/1e1e1e/525252?text=Atlas+HQ"
+  },
+  "hero_image": "https://placehold.co/1400x700/1e1e1e/525252?text=Atlas+HQ+Hero",
+  "blocks": [
+    {
+      "type": "stat_row",
+      "stats": [
+        { "value": "—", "label": "Placeholder stat", "sign": "positive" },
+        { "value": "—", "label": "Placeholder stat", "sign": "positive" },
+        { "value": "—", "label": "Placeholder stat", "sign": "positive" }
+      ]
+    },
+    {
+      "type": "section_heading",
+      "anchor": "overview",
+      "text": "Overview"
+    },
+    {
+      "type": "paragraph",
+      "text": "Placeholder content — update this with your Atlas HQ case study details."
+    }
+  ]
+}

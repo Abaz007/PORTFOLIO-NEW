@@ -27,8 +27,8 @@ function WorkCard({ study, tabIndex }: { study: CaseStudy; tabIndex: number }) {
         src={study.meta.cover_image}
         alt={study.meta.title}
         fill
+        unoptimized
         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-        sizes="680px"
         draggable={false}
       />
       {/* Hover overlay */}

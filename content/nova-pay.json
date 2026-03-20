@@ -1,0 +1,30 @@
+{
+  "slug": "nova-pay",
+  "meta": {
+    "title": "Nova Pay",
+    "descriptor": "Payments infrastructure for emerging markets",
+    "role": "Lead Product Designer",
+    "timeline": "2024–2025",
+    "cover_image": "https://placehold.co/2040x1500/1e1e1e/525252?text=Nova+Pay"
+  },
+  "hero_image": "https://placehold.co/1400x700/1e1e1e/525252?text=Nova+Pay+Hero",
+  "blocks": [
+    {
+      "type": "stat_row",
+      "stats": [
+        { "value": "—", "label": "Placeholder stat", "sign": "positive" },
+        { "value": "—", "label": "Placeholder stat", "sign": "positive" },
+        { "value": "—", "label": "Placeholder stat", "sign": "positive" }
+      ]
+    },
+    {
+      "type": "section_heading",
+      "anchor": "overview",
+      "text": "Overview"
+    },
+    {
+      "type": "paragraph",
+      "text": "Placeholder content — update this with your Nova Pay case study details."
+    }
+  ]
+}

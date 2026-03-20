@@ -21,6 +21,7 @@ export const siteConfig = {
     "root-by-sudo",
     "safe-haven-mfb",
     "halcyon",
+    "nova-pay",
   ],
 
   // Homepage marquee: top row (scrolls left)
