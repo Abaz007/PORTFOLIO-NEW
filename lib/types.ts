@@ -4,6 +4,7 @@ export type CaseStudy = {
   slug:        string;                // Must match filename: root-by-sudo.json → "root-by-sudo"
   meta:        CaseStudyMeta;
   hero_image:  string;                // Cloudinary URL — full-width banner image
+  intro?:      string[];              // Optional paragraphs shown between hero image and My Role
   blocks:      ContentBlock[];        // Ordered array — sequence controls page layout
 };
 
@@ -29,14 +30,21 @@ export type ContentBlock =
   | ImageBlock
   | ImageGridBlock
   | VideoBlock
-  | CanvasCollageBlock;
+  | CanvasCollageBlock
+  | CalloutBlock
+  | InsightListBlock
+  | PullQuoteBlock
+  | KeyInsightsBlock
+  | MentalModelsBlock;
 
 // Text blocks
 export type SectionHeadingBlock = {
-  type:    "section_heading";
-  text:    string;
-  anchor:  string;           // Unique kebab-case ID. e.g. "why-it-mattered"
-  symbol?: string;           // Optional decorative prefix. e.g. "→" "◊" "∞"
+  type:      "section_heading";
+  text:      string;
+  anchor:    string;         // Unique kebab-case ID. e.g. "why-it-mattered"
+  symbol?:   string;         // Optional decorative prefix. e.g. "→" "◊" "∞"
+  no_label?:    boolean;     // If true, suppresses the small uppercase label above the h2
+  label_only?:  boolean;     // If true, renders only the small label — no h2 below it
 };
 
 export type SubheadingBlock = {
@@ -110,6 +118,37 @@ export type VideoBlock = {
   loop?:     boolean;        // Only for Cloudinary. Default: false
   muted?:    boolean;        // Only for Cloudinary. Default: false
   caption?:  string;
+};
+
+export type InsightListBlock = {
+  type:  "insight_list";
+  items: { heading: string; body: string }[];
+};
+
+export type PullQuoteBlock = {
+  type: "pull_quote";
+  text: string;                    // Displayed in Recoleta Light at 20px, between horizontal rules
+};
+
+export type MentalModelsBlock = {
+  type:    "mental_models";
+  heading: string;
+  items: {
+    icon:  "variable_lock" | "total_lock" | "spending_control";
+    label: string;
+    body:  string;
+  }[];
+};
+
+export type KeyInsightsBlock = {
+  type:  "key_insights";
+  items: { heading: string; body: string }[];  // Rendered with horizontal rules between each item
+};
+
+export type CalloutBlock = {
+  type:    "callout";
+  heading: string;           // Bold label line, e.g. "The guiding principle throughout;"
+  body:    string;           // Light text below the left-rule border
 };
 
 export type CanvasCollageBlock = {

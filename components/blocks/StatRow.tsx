@@ -17,14 +17,14 @@ export function StatRow({ stats }: StatRowBlock) {
         <div
           key={i}
           role="listitem"
-          className="p-5 border border-[#262626] bg-[#171717]"
+          className="p-5 bg-[#171717]"
         >
           <p
             className={[
               "font-display font-medium leading-none mb-2",
               signColors[stat.sign ?? "neutral"],
             ].join(" ")}
-            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+            style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}
           >
             {stat.value}
           </p>

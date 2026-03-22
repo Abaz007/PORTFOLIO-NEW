@@ -5,10 +5,11 @@ type Props = {
   descriptor:   string;
   role:         string;
   timeline:     string;
+  intro?:       string[];
   noNavOffset?: boolean;
 };
 
-export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, noNavOffset }: Props) {
+export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, intro, noNavOffset }: Props) {
   return (
     <div style={noNavOffset ? {} : { paddingTop: "var(--nav-height)" }} className="pt-12 pb-0">
       <div className="max-w-reading mx-auto px-6">
@@ -33,23 +34,24 @@ export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, no
           />
         </div>
 
-        {/* Descriptor */}
-        {descriptor && (
-          <p className="mt-6 font-body text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.3px]">
-            {descriptor}
-          </p>
+        {/* Intro paragraphs — between hero image and My Role */}
+        {intro && intro.length > 0 && (
+          <div className="mt-8 flex flex-col gap-4">
+            {intro.map((p, i) => (
+              <p key={i} className="font-body font-light text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.3px]">
+                {p}
+              </p>
+            ))}
+          </div>
         )}
 
-        {/* MY ROLE + TIMELINE */}
+        {/* MY ROLE */}
         <div className="mt-8 flex flex-col gap-4">
           <p className="font-body text-[13px] text-[#737373] tracking-[0.6px] leading-[1.73] uppercase">
             My Role
           </p>
-          <p className="font-body text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.3px]">
-            {role}
-            {timeline && (
-              <span className="ml-2 text-[#737373]">· {timeline}</span>
-            )}
+          <p className="font-body font-light text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.3px]">
+            As the Lead Product Designer on this project, I was responsible for strategy, research, information architecture, interface and interaction design, management, and edge case flows.
           </p>
         </div>
 

@@ -17,6 +17,11 @@ export function BlockRenderer({ blocks }: { blocks: ContentBlock[] }) {
           case "image_grid":      return <B.ImageGrid      key={index} {...block} />;
           case "video":           return <B.VideoBlock     key={index} {...block} />;
           case "canvas_collage":  return <B.CanvasCollage  key={index} {...block} />;
+          case "callout":         return <B.Callout        key={index} {...block} />;
+          case "insight_list":    return <B.InsightList    key={index} {...block} />;
+          case "pull_quote":      return <B.PullQuote      key={index} {...block} />;
+          case "key_insights":    return <B.KeyInsights    key={index} {...block} />;
+          case "mental_models":   return <B.MentalModels   key={index} {...block} />;
           default:
             // TypeScript exhaustiveness check
             const _exhaustive: never = block;

@@ -66,6 +66,7 @@ export function CaseStudySheet({ study, prev, next }: Props) {
             descriptor={study.meta.descriptor}
             role={study.meta.role}
             timeline={study.meta.timeline}
+            intro={study.intro}
             noNavOffset
           />
 

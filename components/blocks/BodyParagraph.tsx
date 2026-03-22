@@ -31,7 +31,7 @@ function parseInline(text: string): React.ReactNode[] {
 
 export function BodyParagraph({ text }: ParagraphBlock) {
   return (
-    <p className="font-body text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.3px]">
+    <p className="font-body font-light text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.3px]">
       {parseInline(text)}
     </p>
   );

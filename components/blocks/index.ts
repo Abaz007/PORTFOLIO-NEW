@@ -9,3 +9,8 @@ export { ImageBlock }     from "./ImageBlock";
 export { ImageGrid }      from "./ImageGrid";
 export { VideoBlock }     from "./VideoBlock";
 export { CanvasCollage }  from "./CanvasCollage";
+export { Callout }        from "./Callout";
+export { InsightList }    from "./InsightList";
+export { PullQuote }      from "./PullQuote";
+export { KeyInsights }    from "./KeyInsights";
+export { MentalModels }   from "./MentalModels";

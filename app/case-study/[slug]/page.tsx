@@ -47,6 +47,7 @@ export default async function CaseStudyPage({ params }: Props) {
         descriptor={study.meta.descriptor}
         role={study.meta.role}
         timeline={study.meta.timeline}
+        intro={study.intro}
       />
 
       {/* Reading column — centered, no sidebar */}

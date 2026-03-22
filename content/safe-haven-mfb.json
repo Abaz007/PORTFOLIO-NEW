@@ -8,79 +8,338 @@
     "cover_image": "https://res.cloudinary.com/dbtws7amv/image/upload/w_2040,h_1500,c_fill,q_100,f_auto/v1773836861/COVER_IMAGE_FOR_SAFE_HAVEN_FIXED_DEPOSIT_v2twep.png",
     "cover_video": "https://res.cloudinary.com/dbtws7amv/video/upload/w_1360,h_1000,c_fill,q_auto:good,f_mp4,br_1500k/v1774021536/All_Scenes_fnr4il.mov"
   },
-  "hero_image": "https://res.cloudinary.com/abasifreke/image/upload/w_1400,q_auto,f_auto/v1/portfolio/safe-haven/hero.png",
+  "hero_image": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774048961/Overview_Image_obghnn.png",
+  "intro": [
+    "Safehaven MFB needed a fixed deposit system that would drive adoption among users who were skeptical of financial products and confused by complex banking language. My role was to design the complete product experience from strategy to implementation.",
+    "Fixed deposits are inherently intimidating. They involve locking money away, often with penalties for early withdrawal, and returning a promise of future value. For users in emerging markets, where trust in financial institutions is hard-won, this requires exceptional transparency and UX clarity.",
+    "The project spanned three distinct savings products, each with fundamentally different mechanics, mental models, and emotional stakes, all unified under one design covering."
+  ],
   "blocks": [
+    {
+      "type": "section_heading",
+      "text": "Success metrics, set before build.",
+      "anchor": "what-success-will-look-like"
+    },
+    {
+      "type": "paragraph",
+      "text": "The design strategy defined concrete success metrics tied to both user behavior and business outcomes. These targets were established during the strategy phase to ensure design decisions were anchored in measurable goals."
+    },
     {
       "type": "stat_row",
       "stats": [
-        { "value": "60%", "label": "Reduction in loan processing time", "sign": "positive" },
-        { "value": "4→1", "label": "Systems consolidated", "sign": "positive" },
-        { "value": "200+", "label": "Bank staff trained on new UI", "sign": "neutral" }
+        { "value": ">90%", "label": "Task completion rate", "sign": "positive" },
+        { "value": "₦500M+", "label": "Total value locked", "sign": "positive" },
+        { "value": "<15%", "label": "Early break rate", "sign": "positive" }
       ]
     },
     {
-      "type": "section_heading",
-      "text": "The context",
-      "anchor": "the-context",
-      "symbol": "→"
+      "type": "paragraph",
+      "text": "We defined these three metrics upfront because each one answers a different critical question about whether the design actually works:"
     },
     {
       "type": "paragraph",
-      "text": "Safe Haven Microfinance Bank serves small business owners and traders across four states in Nigeria. Their operations team was managing loan approvals, account management, and compliance reporting across **four separate legacy systems** — some of them spreadsheet-based."
+      "text": "**>90% Task Completion.** Can users even do this? The baseline usability check. If people can't successfully create a deposit, nothing else matters."
     },
     {
       "type": "paragraph",
-      "text": "I was brought in to design a unified core banking dashboard that would consolidate these workflows into a single, auditable interface — and do it in a way that bank staff with varying levels of digital literacy could adopt without months of retraining."
-    },
-    {
-      "type": "section_heading",
-      "text": "Discovery",
-      "anchor": "discovery",
-      "symbol": "◊"
+      "text": "**₦500M Total Value Locked.** Does this work at scale? Aggregate proof that users aren't just trying the feature once. They're committing significant money to it. Business validation and user confidence combined."
     },
     {
       "type": "paragraph",
-      "text": "I spent two weeks embedded at a branch in Ikeja, shadowing loan officers, tellers, and the compliance team. The biggest insight was that the inefficiency wasn't in any single system — it was in the _handoffs_ between systems."
+      "text": "**<15% Early Break Rate.** Low break rates mean the friction strategy worked. Users aren't acting impulsively and regretting it later. The design protects them from themselves."
     },
     {
-      "type": "bullet_list",
-      "items": [
-        "Loan applications were started in one system, verified in a second, and approved in a third — with email threads bridging the gaps.",
-        "Tellers had no visibility into a customer's loan status, leading to repeated customer explanations at the counter.",
-        "Compliance reports were assembled manually each month, taking 3 days and introducing transcription errors."
-      ]
+      "type": "callout",
+      "heading": "The guiding principle throughout;",
+      "body": "Design that explains itself. No hidden costs, no jargon, no surprises. Every calculation exposed. Every risk clearly named."
     },
     {
       "type": "section_heading",
-      "text": "Design approach",
-      "anchor": "design-approach",
-      "symbol": "∞"
-    },
-    {
-      "type": "paragraph",
-      "text": "I designed around a unified customer record — every touchpoint in the bank anchored to a single view of the customer. Loan officers, tellers, and compliance staff each had a role-specific view, but they were all looking at the same underlying data."
+      "text": "Three products. Three mental models. One confused user.",
+      "anchor": "the-problem"
     },
     {
       "type": "image",
-      "src": "https://res.cloudinary.com/abasifreke/image/upload/w_720,q_auto,f_auto/v1/portfolio/safe-haven/dashboard.png",
-      "alt": "Safe Haven MFB unified dashboard showing customer record with loan status, account balance, and transaction history",
-      "caption": "The unified customer record — visible to all roles, filtered by permission level.",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774087246/2nd_Image_denfgl.png",
+      "alt": "Overview of the three fixed deposit products and their distinct mental models",
       "width": "contained"
     },
     {
-      "type": "blockquote",
-      "text": "Before this, I had to open three tabs and cross-reference before I could answer a customer question. Now it's one screen.",
-      "attribution": "Senior Teller, Safe Haven MFB Ikeja branch"
+      "type": "paragraph",
+      "text": "The brief called for a single fixed deposit product section covering three radically different savings mechanics. Each presented its own design challenge and together they created a compound problem of clarity, trust, and motivation."
     },
     {
-      "type": "section_heading",
-      "text": "Outcomes",
-      "anchor": "outcomes",
-      "symbol": "∑"
+      "type": "insight_list",
+      "items": [
+        {
+          "heading": "Penalty anxiety blocking conversion",
+          "body": "Variable lock offers emergency access with a 30% penalty. But percentages are abstract, users may not be able to evaluate whether \"30%\" was worth it without seeing the naira cost. Loss aversion theory shows vague loss feels worse than known loss."
+        },
+        {
+          "heading": "Three products nobody could tell apart",
+          "body": "All three lock money to earn interest. Without differentiation beyond a comparison table, users may not be able to form distinct mental models. A table answers \"which rate is highest?\" but not \"which works the way I save?\""
+        },
+        {
+          "heading": "Spending Control's concept didn't land",
+          "body": "Auto-saving a percentage of every transaction is novel in Nigerian digital banking. The original \"spending limit\" framing failed, users may not connect \"set a limit\" to \"earn interest.\" Mental accounting theory shows products must map to existing mental models."
+        }
+      ]
+    },
+    {
+      "type": "pull_quote",
+      "text": "\"Research revealed that over 72% of users who broke deposits impulsively reported high regret afterwards. The UX problem wasn't building a better break flow, it was designing appropriate friction to prevent impulse decisions in the first place.\""
     },
     {
       "type": "paragraph",
-      "text": "The dashboard shipped in Q4 2022 after a 3-month development sprint. Loan processing time dropped by 60% in the first quarter. The compliance team now generates their monthly reports in 4 hours rather than 3 days."
+      "text": "The opportunity was significant: a well-designed fixed deposit experience could drive meaningful adoption, reduce break rates, and build the kind of trust that converts one-time depositors into long-term savers, a win for the bank."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section_heading",
+      "text": "Understanding the problem through existing patterns",
+      "anchor": "gathering-insights"
+    },
+    {
+      "type": "paragraph",
+      "text": "Time constraints prevented primary user research. Instead, I synthesized insights from competitive analysis of established platforms, behavioural finance literature, and heuristic evaluation of existing deposit products. The goal was to identify proven patterns and documented failure modes before designing a single screen."
+    },
+    {
+      "type": "paragraph",
+      "text": "Competitive analysis to identify industry patterns, behavioural finance literature to understand decision-making psychology, and heuristic evaluation of existing products to catalog UX friction points."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774048946/3rd_Image_fyhywa.png",
+      "alt": "Research synthesis showing competitive analysis, behavioural finance patterns, and heuristic evaluation findings",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Key Insights gathered",
+      "anchor": "key-insights"
+    },
+    {
+      "type": "key_insights",
+      "items": [
+        {
+          "heading": "Transparency over reassurance",
+          "body": "Competitive analysis showed platforms that hide penalty costs generate trust issues. Behavioral economics confirms vague loss feels worse than known loss. Show exact naira amounts before commitment."
+        },
+        {
+          "heading": "Calibrate friction to financial risk",
+          "body": "Platforms with 1-tap break flows show high regret in reviews. Thaler & Sunstein's nudge theory validates friction as a feature. Multi-step confirmation for high-stakes actions, instant access for low-risk views."
+        },
+        {
+          "heading": "Progress visibility drives persistence",
+          "body": "Goal-setting research shows visual progress increases commitment. Platforms with progress rings have lower early-break rates (inferred from feature presence in top-rated apps). Include progress indicators on every screen."
+        },
+        {
+          "heading": "Differentiation at every interaction layer",
+          "body": "All 6 analyzed platforms use identical UI for different deposit types. Mental accounting theory shows products need distinct categories. Use color, icon, flow structure, and screen layouts to differentiate."
+        }
+      ]
+    },
+    {
+      "type": "mental_models",
+      "heading": "Mental models that guided Design",
+      "items": [
+        {
+          "icon": "variable_lock",
+          "label": "Variable Lock",
+          "body": "Familiar savings account with emergency access fee. Design emphasizes \"emergency exit available\" with transparent cost preview upfront."
+        },
+        {
+          "icon": "total_lock",
+          "label": "Total Lock",
+          "body": "Users conceptualize it as something that must be physically broken to access. Design reinforces with lock iconography and \"unbreakable until maturity\" messaging."
+        },
+        {
+          "icon": "spending_control",
+          "label": "Spending Control Lock",
+          "body": "Invisible saving that happens automatically. Users relate to putting spare change in a jar digitally triggered by spending behavior."
+        }
+      ]
+    },
+    {
+      "type": "section_heading",
+      "text": "Hierarchy that earns trust at every level",
+      "anchor": "information-architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "Every financial product asks users to trust it with something real, their money. Information architecture decisions in fintech have direct emotional consequences. I mapped content priority ruthlessly: what earns trust first, what explains second, what clarifies third."
+    },
+    {
+      "type": "paragraph",
+      "text": "The system sits within a five-level hierarchy. The critical IA decision was when to differentiate by product type. Too early caused analysis paralysis; too late caused confusion during creation."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774048945/4th_Image_gpgfiz.png",
+      "alt": "Information architecture hierarchy diagram showing five levels from Dashboard to Break Deposit",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Starting from the middle.",
+      "anchor": "putting-it-altogether"
+    },
+    {
+      "type": "paragraph",
+      "text": "I started with the components that would define the system. This is the part where I grab my headset, turn on my favourite playlist, and allow my imaginations run. I designed from the middle out; starting with the atomic decisions that create a visual language, then expanding into screens and flows once the system has a voice."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774048947/5th_Image_yvjwr2.png",
+      "alt": "Component system and design tokens",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Creating a Deposit",
+      "anchor": "creating-a-deposit",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "Before a user can create a deposit, they need to understand what they're choosing. The selection screen presents three products as distinct identities."
+    },
+    {
+      "type": "paragraph",
+      "text": "Introducing the three deposit types. Each product card shows: icon, name, tagline, 3 key features, interest rate badge, and CTA. The cards are vertically stacked with clear visual separation. Color coding begins here."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774048950/7th_Image_jymxpe.png",
+      "alt": "Fixed deposit product selection screen showing three deposit types",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Deposit Management",
+      "anchor": "deposit-management",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "The detail screen is where users spend most of their time after creation. It's not just a status page, it's the control center for a single deposit. The design challenge was showing current state, progress, and available actions without overwhelming a user who is already in a committed financial relationship with this screen."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774048952/8th_Image_gcjqus.png",
+      "alt": "Deposit management detail screen",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Matured Deposits & Completion",
+      "anchor": "matured-deposits",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "When a deposit reaches maturity, the entire detail screen transforms. This isn't just a status update, it's a success moment that deserves recognition. The design had to celebrate the user's achievement while providing clear documentation of what happened and what comes next."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774048955/11th_Image_gpj2ps.png",
+      "alt": "Matured deposit success screen",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Breaking a Deposit",
+      "anchor": "breaking-a-deposit",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "Breaking a deposit early is the highest-stakes interaction in the entire product. Users are about to lose money: real money, not just opportunity cost."
+    },
+    {
+      "type": "paragraph",
+      "text": "The design challenge wasn't just showing penalty information. It was creating a flow that prevents impulsive breaks driven by short-term emotion, while still respecting users who genuinely need emergency access. This required deliberate friction, calibrated at every step."
+    },
+    {
+      "type": "paragraph",
+      "text": "During competitive analysis, I examined break flows across 6 Nigerian fintech platforms. The pattern was consistent: minimal friction, 1-tap confirmation, penalty shown only at the moment of breaking. App store reviews told the story: users repeatedly mentioned \"accidentally broke my deposit\" and \"didn't realize I'd lose so much.\""
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774048959/12th_Image_m1vce6.png",
+      "alt": "Break deposit flow showing penalty transparency and friction steps",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "UX Strategy"
+    },
+    {
+      "type": "paragraph",
+      "text": "The strategy I used is called escalating commitment: each step in the flow requires slightly more deliberate action than the previous one. This isn't about making things difficult. It's about creating pause points where users can engage their reflective thinking system instead of their automatic impulsive system."
+    },
+    {
+      "type": "subheading",
+      "text": "Friction Calibration Framework"
+    },
+    {
+      "type": "paragraph",
+      "text": "Not all actions deserve the same level of friction. I designed a three-tier framework based on two factors: reversibility and financial impact."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774135509/imAGE_13_dwynup.png",
+      "alt": "Friction calibration framework showing tiers of friction by action type",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "Edge Case Handling"
+    },
+    {
+      "type": "paragraph",
+      "text": "What if the user tries to break a SafeVault deposit?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Total Lock deposits cannot be broken. That's the product's core value proposition (maximum returns in exchange for total lock). When a user taps \"Break Deposit\" on a SafeVault detail screen, they see a specific modal explaining why it's not possible and when their funds will be available."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774048960/13th_Image_ao2h1g.png",
+      "alt": "Cannot break this deposit modal for Total Lock",
+      "width": "contained"
+    },
+    {
+      "type": "paragraph",
+      "text": "Friction in UX is often framed as the enemy: something to remove, optimize away, smooth over. But when an action is irreversible and financially costly, friction becomes a design tool. The break flow isn't just about showing penalty information. It's about creating space for reflection in a medium designed for speed."
+    },
+    {
+      "type": "section_heading",
+      "text": "My Takeaway from this project",
+      "anchor": "reflections"
+    },
+    {
+      "type": "paragraph",
+      "text": "Designing financial products compresses every UX challenge into one product: trust, complexity, anxiety, delight, and real-world consequences. These are the lessons I'll carry forward."
+    },
+    {
+      "type": "subheading",
+      "text": "01-Product naming is design work, it belongs in the brief room"
+    },
+    {
+      "type": "paragraph",
+      "text": "Total Lock, Variable Lock, Spending Control were mechanism-first names that described what the product does to money, not what it does for users. Renaming them in design review felt overdue. This conversation should happen at brief stage, with the designer at the table, not as a late-stage copy polish."
+    },
+    {
+      "type": "subheading",
+      "text": "02-Transparency outperforms reassurance, every time"
+    },
+    {
+      "type": "paragraph",
+      "text": "My instinct early on was to soften penalty language to make breaking a deposit feel less punishing. The research corrected me: users didn't want reassurance, they wanted information. The more precisely I showed the cost (30%, not \"a fee\"), the more trusted the system became. Hiding complexity doesn't remove it. It just moves the anxiety to a different moment."
     }
   ]
 }
