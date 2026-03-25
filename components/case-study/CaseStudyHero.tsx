@@ -51,7 +51,7 @@ export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, in
             My Role
           </p>
           <p className="font-body font-light text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.3px]">
-            As the Lead Product Designer on this project, I was responsible for strategy, research, information architecture, interface and interaction design, management, and edge case flows.
+            I was the sole Product Designer on this project, owning the end-to-end design process from discovery and research synthesis through interaction design, prototyping, stakeholder alignment, and handoff to engineering.
           </p>
         </div>
 

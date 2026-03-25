@@ -1,101 +1,344 @@
 {
   "slug": "root-by-sudo",
   "meta": {
-    "title": "Root by Sudo",
+    "title": "Redesigning Root by Sudo",
     "descriptor": "B2C fintech mobile app redesign",
     "role": "Head of Design",
     "timeline": "2022–2024",
     "cover_image": "https://res.cloudinary.com/dbtws7amv/image/upload/w_2040,h_1500,c_fill,q_100,f_auto/v1773837655/COVER_IMAGE_FOR_ROOT_fpiwht.png",
     "cover_video": "https://res.cloudinary.com/dbtws7amv/video/upload/w_1360,h_1000,c_fill,q_auto:good,f_mp4,br_1500k/v1774021616/All_Scenes_2_hxxlji.mov"
   },
-  "hero_image": "https://res.cloudinary.com/dbtws7amv/image/upload/w_1400,q_auto,f_auto/Hero_agulgc.png",
+  "hero_image": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272233/1_pcc2bi.png",
+  "intro": [
+    "Sudo Africa is a financial infrastructure company providing card issuing, banking APIs, and digital payment rails to businesses across Africa. Root by Sudo is Sudo's consumer-facing mobile application, a B2C product built on top of Sudo's infrastructure, enabling individual users to access programmable virtual and physical cards, manage accounts, fund wallets, and execute transactions from their mobile devices.",
+    "By the time this redesign project was commissioned, Root had accumulated a growing and vocal user base but was haemorrhaging trust. The product was technically functional but experientially broken, a gap that was showing up in every layer of the business."
+  ],
   "blocks": [
+    {
+      "type": "section_heading",
+      "text": "",
+      "anchor": "outcomes",
+      "label_only": true
+    },
     {
       "type": "stat_row",
       "stats": [
-        { "value": "3×", "label": "Transaction volume growth", "sign": "positive" },
-        { "value": "25%", "label": "Drop in onboarding drop-off", "sign": "positive" },
-        { "value": "₦30M+", "label": "Monthly transactions processed", "sign": "positive" },
-        { "value": ">80", "label": "NPS score post-redesign", "sign": "positive" }
+        { "value": "60%+", "label": "Reduction in Support calls", "sign": "positive" },
+        { "value": "50X+", "label": "Card creation rate", "sign": "positive" },
+        { "value": "2 → 4.7", "label": "App store rating", "sign": "positive" },
+        { "value": "↑ DAU", "label": "Steady 6-month growth in DAUs", "sign": "positive" }
       ]
     },
     {
       "type": "section_heading",
-      "text": "Why it mattered",
-      "anchor": "why-it-mattered",
-      "symbol": "→"
+      "text": "What was the problem?",
+      "anchor": "the-problem"
     },
     {
       "type": "paragraph",
-      "text": "Root by Sudo is a **B2C fintech app** serving underbanked Nigerians with savings, transfers, and bill payments. When I joined as Head of Design, the product had strong retention among existing users but was haemorrhaging new signups at onboarding — a problem the engineering team had been patching with dark patterns rather than fixing with good design."
-    },
-    {
-      "type": "paragraph",
-      "text": "The brief was deceptively simple: _reduce drop-off_. The underlying challenge was more nuanced — we needed to build trust with users who had been burned by informal savings schemes, while meeting CBN compliance requirements that made onboarding legally complex."
-    },
-    {
-      "type": "section_heading",
-      "text": "Research",
-      "anchor": "research",
-      "symbol": "◊"
-    },
-    {
-      "type": "paragraph",
-      "text": "I ran moderated usability sessions with 12 participants across Lagos and Abuja — mix of banked and unbanked users. Three patterns emerged immediately."
+      "text": "Root by Sudo had reached an inflection point. The business was ready to scale but the product was not built to support that ambition. What had been acceptable friction at small scale had become a serious liability. The problems were not isolated; they were systemic, cutting across usability, product architecture, performance, and trust."
     },
     {
       "type": "bullet_list",
       "items": [
-        "Trust signals were absent. Users didn't know if Root was a regulated bank or an informal app — and the UI gave no indication either way.",
-        "The BVN verification step created anxiety. Users didn't understand why a 'simple savings app' needed their bank number.",
-        "Progress was invisible. The 7-step onboarding had no progress indicator, so users quit assuming there was no end."
+        "Operational Strain on Support Teams",
+        "Alarming App Store Ratings",
+        "Post-Onboarding Drop-Off & The 'Dead End' Problem",
+        "Declining Daily Active Users & Revenue Impact",
+        "Performance & Speed Complaints"
       ]
     },
     {
-      "type": "blockquote",
-      "text": "I thought it was going to keep asking me for things forever. I just closed it.",
-      "attribution": "Research participant, Lagos"
+      "type": "callout",
+      "heading": "The Moment That Defined The Problem...",
+      "body": "...I finished the onboarding and I didn't know what to do next. There was nothing telling me where to go or what to do. I deleted the app. I only came back months later because I couldn't find anything else like it."
     },
     {
       "type": "section_heading",
-      "text": "The reframe",
-      "anchor": "the-reframe",
-      "symbol": "∞"
-    },
-    {
-      "type": "paragraph",
-      "text": "The team had been treating onboarding as a compliance hurdle to get through. I reframed it as the product's first promise to the user — the moment where Root either earns trust or loses it forever."
+      "text": "Gathering Insights",
+      "anchor": "gathering-insights"
     },
     {
       "type": "image",
-      "src": "https://res.cloudinary.com/abasifreke/image/upload/w_1000,q_auto,f_auto/v1/portfolio/root/before-after.png",
-      "alt": "Before and after comparison of Root onboarding flow",
-      "caption": "Before (left): 7 steps with no progress indication. After (right): 4 steps with trust signals at each gate.",
-      "width": "full"
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272240/2_y9p6tl.png",
+      "alt": "Research overview",
+      "width": "contained"
     },
     {
-      "type": "section_heading",
-      "text": "Outcomes",
-      "anchor": "outcomes",
-      "symbol": "∑"
+      "type": "subheading",
+      "text": "Complaint Backlog Analysis"
     },
     {
       "type": "paragraph",
-      "text": "The redesigned onboarding launched in Q3 2023. Within 8 weeks, onboarding completion rate moved from **41% to 66%** — a 25-point improvement that directly translated into a 3× increase in transaction volume as the cohort activated."
+      "text": "Working with Customer Support and Technical Support teams, I conducted a structured analysis of the accumulated backlog of user complaints. Complaints were categorised by type (usability confusion, feature discoverability, transactional errors, and trust concerns) and mapped to specific product surfaces to identify where the product was failing most severely."
     },
     {
-      "type": "stat_row",
-      "stats": [
-        { "value": "41%→66%", "label": "Onboarding completion", "sign": "positive" },
-        { "value": "8 weeks", "label": "Time to measurable impact", "sign": "neutral" }
+      "type": "research_callout",
+      "items": [
+        "The overwhelming majority of support contacts were about tasks that should require zero assistance: funding a card, linking a primary account, making a withdrawal, and setting up settlement preferences. These are core product actions, not edge cases.",
+        "Technical support staff had moved beyond answering questions into actively hand-holding users through live sessions. The support team had become a workaround for broken UX.",
+        "Complaint volume was concentrated in a small number of flows, giving a clear and immediate signal for where to prioritise the redesign effort.",
+        "Many complaints were repeat contacts from the same users, indicating that problems were not being resolved by guidance alone. The issues were structural."
       ]
     },
     {
-      "type": "divider"
+      "type": "subheading",
+      "text": "User Interviews"
     },
     {
       "type": "paragraph",
-      "text": "This project reinforced something I now treat as a design principle: _compliance requirements and good user experience are not in opposition_. The constraint is always also an opportunity to explain, reassure, and build trust."
+      "text": "I recruited a focused group of active Root users for in-depth interviews, selecting participants who used the application regularly and had direct experience with its most friction-heavy flows. Sessions were structured around three areas: the onboarding and first-use experience, core transactional flows, and overall perception of product trustworthiness."
+    },
+    {
+      "type": "research_callout",
+      "items": [
+        "Users consistently described confusion about the relationship between their settlement account and their card account. Most assumed they were the same thing. The product gave no explanation, no distinction, and no guidance.",
+        "Funding a card and making withdrawals were described as anxiety-inducing. Users were unsure whether their actions had succeeded. Feedback states were either absent or too subtle to register confidence.",
+        "Multiple users reported that they had completed onboarding, arrived at the home screen, and had no idea what to do next. The product did not communicate what it was for, or what users should do first.",
+        "Users who had persisted beyond onboarding described a sense of distrust in the transaction history. With no distinction between account types, balances and entries felt confusing and unreliable."
+      ]
+    },
+    {
+      "type": "subheading",
+      "text": "Stakeholder Interviews & Business Brief"
+    },
+    {
+      "type": "paragraph",
+      "text": "I conducted structured interviews with the CEO, COO, Head of Business, and a Technical Support representative to understand the business's strategic direction, internal pain points, and the constraints that would shape the design approach. Stakeholders provided a confidential product brief outlining scaling ambitions and commercial priorities."
+    },
+    {
+      "type": "research_callout",
+      "items": [
+        "The business was preparing to scale in a meaningful way, and the existing product was not structurally or experientially ready for that growth. Leadership acknowledged this explicitly.",
+        "The Technical Support representative confirmed that the volume of hand-holding calls was unsustainable. The support team was operating as a product crutch rather than an exception handler.",
+        "Stakeholders had a clear commercial intent: increase card creation and activation rates. The business understood that users who created cards were significantly more likely to transact, retain, and generate revenue.",
+        "There was strong appetite for a post-onboarding experience that created immediate engagement, which opened the door to the default card strategy I later proposed.",
+        "The brief surfaced tension between speed of delivery and the depth of change required. The timeline was tight relative to the scope of the problem, which became the central constraint of the project."
+      ]
+    },
+    {
+      "type": "subheading",
+      "text": "Comprehensive UX Audit"
+    },
+    {
+      "type": "paragraph",
+      "text": "I conducted a full end-to-end heuristic evaluation of the existing Root application across four primary surfaces: Onboarding, Card Home Page, Card Creation, and Card Management."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272235/3_fkawjo.png",
+      "alt": "UX audit findings across four product surfaces",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Fixing the Post-Onboarding Experience",
+      "anchor": "putting-it-together"
+    },
+    {
+      "type": "paragraph",
+      "text": "The broken post-onboarding experience was the highest-priority problem. Users were completing a multi-step compliance journey, arriving at the home screen, and having no idea what to do. The product offered no reward for completion, no direction, and no momentum."
+    },
+    {
+      "type": "paragraph",
+      "text": "The redesign addressed this on two levels: first, the onboarding flow was restructured with logical stages, step indicators, and proper error and success states. Second and most significantly I championed a post-onboarding reward strategy with leadership."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774297495/4_outrfj.png",
+      "alt": "Before and after the post-onboarding redesign",
+      "width": "contained"
+    },
+    {
+      "type": "research_callout",
+      "label": "STRATEGIC DESIGN DECISION",
+      "body": "Upon completing compliance, users would be issued a default card automatically, at no cost. This transformed the end of onboarding from a dead end into an AHA moment: users arrived at the home screen with a card already in their name, ready to use. Card creation was no longer a barrier to discover and navigate; it was a gift the product gave them. This required commercial and engineering alignment before the design could proceed."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272238/5_ebjakp.png",
+      "alt": "Post-onboarding default card strategy screens",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Custom Illustrations: Designing for Emotion, Not Just Function",
+      "anchor": "custom-illustrations",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "The decision to invest in custom illustration was a deliberate one. Users interacting with a financial product are, at various points, anxious, uncertain, or simply looking for reassurance that the system has understood them. A well-crafted illustration at the right moment does something a status message cannot: it signals care."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272261/6_dfrwsa.png",
+      "alt": "Custom illustrations designed for key emotional moments in the product",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "A New Way to Fund and Withdraw",
+      "anchor": "fund-and-withdraw",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "Funding a card and withdrawing money were two of the most complained-about features, both overcomplicated and confusing to use. Both app store reviews and the complaint backlog confirmed it. The redesign introduces clarity when funding and withdrawing with all fees spelt out clearly."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272263/7_fzzo1e.png",
+      "alt": "Redesigned fund and withdraw flows",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272265/8_mmomft.png",
+      "alt": "Fund and withdraw flow details",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272267/9_hlwqve.png",
+      "alt": "Fund and withdraw confirmation states",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Redesigning the Transaction Experience",
+      "anchor": "transaction-experience",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "A major source of user confusion was the inability to distinguish between Card Account transactions and Settlement Account transactions. Both appeared in a single undifferentiated list: no labels, no hierarchy, no filters. The redesign introduced a clear structural separation between account types, with distinct views, labelling, and transaction categorisation. Filters by date, type, and status were added for power users."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272268/10_xxjjzh.png",
+      "alt": "Redesigned transaction experience with account type separation",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272270/11_lw4tbt.png",
+      "alt": "Transaction experience detail screens",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272272/13_ro7iyj.png",
+      "alt": "Transaction history filter and categorisation",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "The Dispute Transaction Feature",
+      "anchor": "dispute-feature",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "One of the most significant new features introduced was an in-app transaction dispute mechanism. Previously, users experiencing an incorrect charge or suspected fraud had no structured in-app recourse. They had to call support, often without resolution. I led the initiative to design a dispute flow allowing users to flag transactions, select a category, provide evidence, and submit a structured request, reducing unstructured support contacts significantly."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272276/14_eddex6.png",
+      "alt": "In-app transaction dispute flow",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Repositioning Features for Findability",
+      "anchor": "feature-findability",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "One of the clearest symptoms of a broken information architecture is when users cannot find features they know exist. Before the redesign, core card management capabilities were buried, inconsistently placed, or entirely absent from the surfaces where users expected to find them. The Freeze Card toggle, card channel controls, PIN management, and account statement access all lived in locations that did not reflect how users think about managing a card."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272280/15_lrf0t6.png",
+      "alt": "Redesigned card management and feature discovery",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "The Profile Restructure",
+      "anchor": "profile-restructure",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "Before the redesign, account-level settings were scattered with no logical grouping and no clear owner. Users who wanted to manage their bank accounts, update notification preferences, or track a physical card order had no reliable place to look. The profile page was an afterthought, not a destination. A well-structured profile page reduces misdirected support contacts and gives users a sense of control over their account."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774272279/16_zdxm5k.png",
+      "alt": "Restructured profile page with logical grouping",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Navigating Stakeholder Alignment",
+      "anchor": "challenges"
+    },
+    {
+      "type": "paragraph",
+      "text": "With four senior stakeholders involved, alignment required deliberate effort. Disagreements arose around pace of change (simultaneous vs. phased launch), the default card strategy (requiring commercial commitment), and scope of the dispute flow. My approach to every disagreement was the same: return to the evidence. Every design decision presented to stakeholders was anchored in specific complaint data, user research findings, or drop-off analytics. Evidence, not opinion, was the currency of every alignment conversation."
+    },
+    {
+      "type": "section_heading",
+      "text": "Engineering Collaboration on Performance",
+      "anchor": "eng-collaboration",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "The app performance issues were fundamentally technical, but a designer who ignores performance is designing in a vacuum. I worked closely with engineering to ensure redesigned flows were architected to avoid new performance burdens, flagging optimised asset sizes, lazy-loading patterns for transaction histories, and streamlined screen transitions at handoff."
+    },
+    {
+      "type": "section_heading",
+      "text": "Results and Impacts",
+      "anchor": "outcome"
+    },
+    {
+      "type": "paragraph",
+      "text": "The redesign launched to the full user base and the results were swift, measurable, and cross-functional. Outcomes below represent directional figures based on post-launch monitoring, confirmed by Customer Support, analytics review, and app store data."
+    },
+    {
+      "type": "key_insights",
+      "items": [
+        { "heading": "App Store Rating",        "before": "~2.x low 2-star range (iOS & Android)",                               "after": "4.7 ★" },
+        { "heading": "Support Call Volume",     "before": "High hand-holding required for basic flows",                          "after": "Reduced by 60%+ within weeks" },
+        { "heading": "Card Creation Rate",      "before": "Baseline: Year 1 total volume",                                       "after": "50× Year 1 in the first month post-launch" },
+        { "heading": "Daily Active Users",      "before": "Declining trend pre-launch",                                          "after": "Steady upward growth across 6 months" },
+        { "heading": "Revenue",                 "before": "Declining due to engagement drop-off",                                 "after": "Significant increase (directional; confidential)" },
+        { "heading": "Post-Onboarding Activation", "before": "Less than 26% of users activated their card after completing onboarding", "after": "62%+ used their default card immediately after onboarding completion" }
+      ]
+    },
+    {
+      "type": "subheading",
+      "text": "Qualitative Shift"
+    },
+    {
+      "type": "paragraph",
+      "text": "Customer support staff reported an immediate change in the nature of inbound contacts. Users were no longer calling to ask how to fund a card or link an account. App store reviews shifted in both tone and content, with users specifically citing improved onboarding clarity, ease of card creation, and a cleaner transaction view. For several reviewers, the redesigned product felt like \"a completely different app\", which, architecturally and experientially, it was."
+    },
+    {
+      "type": "section_heading",
+      "text": "What I'd Do Differently",
+      "anchor": "reflections-and-learnings"
+    },
+    {
+      "type": "subheading",
+      "text": "Establish a Design Validation Loop Earlier"
+    },
+    {
+      "type": "paragraph",
+      "text": "Timeline pressure made it tempting to move quickly from research to implementation. In hindsight, at least one structured usability testing round on mid-fidelity prototypes, especially for the post-onboarding flow, would have surfaced edge cases before they reached engineering."
     }
   ]
 }

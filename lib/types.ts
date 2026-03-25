@@ -35,7 +35,8 @@ export type ContentBlock =
   | InsightListBlock
   | PullQuoteBlock
   | KeyInsightsBlock
-  | MentalModelsBlock;
+  | MentalModelsBlock
+  | ResearchCalloutBlock;
 
 // Text blocks
 export type SectionHeadingBlock = {
@@ -142,13 +143,20 @@ export type MentalModelsBlock = {
 
 export type KeyInsightsBlock = {
   type:  "key_insights";
-  items: { heading: string; body: string }[];  // Rendered with horizontal rules between each item
+  items: { heading: string; before?: string; after?: string; body?: string }[];
 };
 
 export type CalloutBlock = {
   type:    "callout";
   heading: string;           // Bold label line, e.g. "The guiding principle throughout;"
   body:    string;           // Light text below the left-rule border
+};
+
+export type ResearchCalloutBlock = {
+  type:    "research_callout";
+  label?:  string;    // Header label text. Default: "KEY FINDINGS". e.g. "STRATEGIC DESIGN DECISION"
+  items?:  string[];  // Bullet list items. Use either items or body, not both.
+  body?:   string;    // Single paragraph body. Use when content is not a list.
 };
 
 export type CanvasCollageBlock = {

@@ -13,4 +13,5 @@ export { Callout }        from "./Callout";
 export { InsightList }    from "./InsightList";
 export { PullQuote }      from "./PullQuote";
 export { KeyInsights }    from "./KeyInsights";
-export { MentalModels }   from "./MentalModels";
+export { MentalModels }      from "./MentalModels";
+export { ResearchCallout }   from "./ResearchCallout";
