@@ -1,3 +1,5 @@
+import { Callout } from "@/components/blocks";
+import type { CalloutBlock } from "@/lib/types";
 
 type Props = {
   heroImage:        string;
@@ -6,12 +8,13 @@ type Props = {
   role:             string;
   timeline:         string;
   intro?:           string[];
+  introCallout?:    CalloutBlock;
   roleDescription?: string;
   noNavOffset?:     boolean;
   noDivider?:       boolean;
 };
 
-export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, intro, roleDescription, noNavOffset, noDivider }: Props) {
+export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, intro, introCallout, roleDescription, noNavOffset, noDivider }: Props) {
   return (
     <div style={noNavOffset ? {} : { paddingTop: "var(--nav-height)" }} className="pt-12 pb-0">
       <div className="max-w-reading mx-auto px-6">
@@ -46,6 +49,9 @@ export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, in
             ))}
           </div>
         )}
+
+        {/* Intro callout — between intro paragraphs and My Role */}
+        {introCallout && <Callout {...introCallout} />}
 
         {/* MY ROLE */}
         <div className="mt-8 flex flex-col gap-4">

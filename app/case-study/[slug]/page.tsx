@@ -48,6 +48,7 @@ export default async function CaseStudyPage({ params }: Props) {
         role={study.meta.role}
         timeline={study.meta.timeline}
         intro={study.intro}
+        introCallout={study.intro_callout}
         roleDescription={study.my_role}
         noDivider={study.no_hero_divider}
       />

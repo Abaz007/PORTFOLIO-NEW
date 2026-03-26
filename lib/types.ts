@@ -5,6 +5,7 @@ export type CaseStudy = {
   meta:             CaseStudyMeta;
   hero_image:       string;           // Cloudinary URL — full-width banner image
   intro?:           string[];         // Optional paragraphs shown between hero image and My Role
+  intro_callout?:   CalloutBlock;     // Optional callout card rendered after intro paragraphs, before My Role
   my_role?:         string;           // Overrides the hardcoded My Role description in CaseStudyHero
   no_hero_divider?: boolean;          // If true, suppresses the rule between hero and content blocks
   blocks:           ContentBlock[];   // Ordered array — sequence controls page layout

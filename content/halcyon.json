@@ -1,101 +1,22 @@
 {
   "slug": "halcyon",
   "meta": {
-    "title": "Funge NFT Marketplace",
+    "title": "Funge NFT Marketplace Design",
     "descriptor": "A Social NFT Trading Platform",
     "role": "Senior Product Designer",
     "timeline": "2020–2021",
     "cover_image": "https://res.cloudinary.com/dbtws7amv/image/upload/w_2040,h_1500,c_fill,q_100,f_auto/v1773843439/COVER_IMAGE_FOR_THIRD_n4bncv.png"
   },
-  "hero_image": "https://res.cloudinary.com/abasifreke/image/upload/w_1400,q_auto,f_auto/v1/portfolio/halcyon/hero.png",
-  "blocks": [
-    {
-      "type": "stat_row",
-      "stats": [
-        { "value": "4.8★", "label": "App Store rating at launch", "sign": "positive" },
-        { "value": "68%", "label": "7-day retention rate", "sign": "positive" },
-        { "value": "12min", "label": "Average daily session length", "sign": "neutral" }
-      ]
-    },
-    {
-      "type": "section_heading",
-      "text": "The problem space",
-      "anchor": "the-problem-space",
-      "symbol": "→"
-    },
-    {
-      "type": "paragraph",
-      "text": "Halcyon was founded on a clear thesis: mental health support in Africa is inaccessible — by cost, by stigma, and by geography. The founders wanted to build something that met young professionals where they were: on their phones, during commutes, between meetings."
-    },
-    {
-      "type": "paragraph",
-      "text": "I joined at the 0→1 stage, with the mandate to design the product from scratch. No existing UI to react to, which is both the dream and the most demanding brief."
-    },
-    {
-      "type": "section_heading",
-      "text": "Research insights",
-      "anchor": "research-insights",
-      "symbol": "◊"
-    },
-    {
-      "type": "paragraph",
-      "text": "The research phase revealed a crucial tension: users wanted to feel supported without feeling surveilled. They wanted the app to _understand_ them — but were wary of anything that felt clinical or judgmental."
-    },
-    {
-      "type": "bullet_list",
-      "items": [
-        "Language matters enormously. Clinical terminology caused immediate disengagement — users felt like they were being diagnosed, not helped.",
-        "Consistency beats intensity. Users preferred short, daily touchpoints over long weekly sessions.",
-        "Social proof reduces stigma. Knowing that 'people like me' used the app was a stronger conversion driver than feature lists."
-      ]
-    },
-    {
-      "type": "section_heading",
-      "text": "Design principles",
-      "anchor": "design-principles",
-      "symbol": "∞"
-    },
-    {
-      "type": "paragraph",
-      "text": "From the research, I derived three principles that governed every design decision on the project."
-    },
-    {
-      "type": "subheading",
-      "text": "Warmth over efficiency"
-    },
-    {
-      "type": "paragraph",
-      "text": "Every interaction had to feel like a check-in from a thoughtful friend, not a task to complete. This meant slower, more deliberate animations, generous white space, and copy that acknowledged emotion before offering action."
-    },
-    {
-      "type": "subheading",
-      "text": "Progress without pressure"
-    },
-    {
-      "type": "paragraph",
-      "text": "Streaks and gamification patterns from fitness apps created anxiety, not motivation, in our context. We built a system that celebrated consistency without penalising breaks."
-    },
-    {
-      "type": "image",
-      "src": "https://res.cloudinary.com/abasifreke/image/upload/w_1000,q_auto,f_auto/v1/portfolio/halcyon/screens.png",
-      "alt": "Halcyon app screens showing the daily check-in flow and reflection journal",
-      "caption": "Daily check-in (left) and reflection journal (right) — designed around a 5-minute habit.",
-      "width": "full"
-    },
-    {
-      "type": "section_heading",
-      "text": "Outcomes",
-      "anchor": "outcomes",
-      "symbol": "∑"
-    },
-    {
-      "type": "paragraph",
-      "text": "Halcyon launched on iOS and Android in Q2 2021. The 7-day retention rate of 68% significantly outperformed the category benchmark (~40%). The 4.8★ App Store rating at launch was driven primarily by reviews citing the app's _tone_ — users felt heard rather than treated."
-    },
-    {
-      "type": "blockquote",
-      "text": "This is the first mental health app that doesn't make me feel broken for using it.",
-      "attribution": "App Store review, Lagos"
-    }
-  ]
+  "hero_image": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537537/FRAME_oycukx.png",
+  "intro": [
+    "Funge launched as a plain NFT marketplace on Android: functional, but undifferentiated in an increasingly crowded space. When the client came back for a V2, the brief was deceptively simple: make it more social. What followed was a full-scale redesign that touched product strategy, information architecture, a rebuilt design system, and an entirely new feature set while preserving the low-friction experience the existing community valued."
+  ],
+  "my_role": "In this project, I was responsible for conducting user research, analysing research data, translating insights to design solutions, managing stakeholders, information architecture, facilitating ideation workshops and visual design. Shout out to Samuel(Product Designer) who was awesome on the design roadmap, coordinating and designing parts of product experience.",
+  "intro_callout": {
+    "type": "callout",
+    "heading": "The core design question",
+    "body": "\"How do we build a community-driven NFT platform that feels as approachable as Instagram but as capable as OpenSea, without overwhelming the growing number of first-time crypto users in our audience?\"",
+    "no_icon": true
+  },
+  "blocks": []
 }
