@@ -1,15 +1,17 @@
 
 type Props = {
-  heroImage:    string;
-  title:        string;
-  descriptor:   string;
-  role:         string;
-  timeline:     string;
-  intro?:       string[];
-  noNavOffset?: boolean;
+  heroImage:        string;
+  title:            string;
+  descriptor:       string;
+  role:             string;
+  timeline:         string;
+  intro?:           string[];
+  roleDescription?: string;
+  noNavOffset?:     boolean;
+  noDivider?:       boolean;
 };
 
-export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, intro, noNavOffset }: Props) {
+export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, intro, roleDescription, noNavOffset, noDivider }: Props) {
   return (
     <div style={noNavOffset ? {} : { paddingTop: "var(--nav-height)" }} className="pt-12 pb-0">
       <div className="max-w-reading mx-auto px-6">
@@ -51,12 +53,12 @@ export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, in
             My Role
           </p>
           <p className="font-body font-light text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.3px]">
-            I was the sole Product Designer on this project, owning the end-to-end design process from discovery and research synthesis through interaction design, prototyping, stakeholder alignment, and handoff to engineering.
+            {roleDescription ?? "I was the sole Product Designer on this project, owning the end-to-end design process from discovery and research synthesis through interaction design, prototyping, stakeholder alignment, and handoff to engineering."}
           </p>
         </div>
 
         {/* Divider before blocks */}
-        <div className="mt-12 h-px bg-[#171717]" />
+        {!noDivider && <div className="mt-12 h-px bg-[#171717]" />}
       </div>
     </div>
   );

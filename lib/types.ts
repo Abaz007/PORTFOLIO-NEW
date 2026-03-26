@@ -1,11 +1,13 @@
 // lib/types.ts — complete type definitions
 
 export type CaseStudy = {
-  slug:        string;                // Must match filename: root-by-sudo.json → "root-by-sudo"
-  meta:        CaseStudyMeta;
-  hero_image:  string;                // Cloudinary URL — full-width banner image
-  intro?:      string[];              // Optional paragraphs shown between hero image and My Role
-  blocks:      ContentBlock[];        // Ordered array — sequence controls page layout
+  slug:             string;           // Must match filename: root-by-sudo.json → "root-by-sudo"
+  meta:             CaseStudyMeta;
+  hero_image:       string;           // Cloudinary URL — full-width banner image
+  intro?:           string[];         // Optional paragraphs shown between hero image and My Role
+  my_role?:         string;           // Overrides the hardcoded My Role description in CaseStudyHero
+  no_hero_divider?: boolean;          // If true, suppresses the rule between hero and content blocks
+  blocks:           ContentBlock[];   // Ordered array — sequence controls page layout
 };
 
 export type CaseStudyMeta = {
@@ -36,15 +38,20 @@ export type ContentBlock =
   | PullQuoteBlock
   | KeyInsightsBlock
   | MentalModelsBlock
-  | ResearchCalloutBlock;
+  | ResearchCalloutBlock
+  | ComparisonTableBlock
+  | PersonaColumnsBlock
+  | NumberedListBlock;
 
 // Text blocks
 export type SectionHeadingBlock = {
   type:      "section_heading";
   text:      string;
   anchor:    string;         // Unique kebab-case ID. e.g. "why-it-mattered"
+  label?:    string;         // Optional override for the small uppercase label. Default: derived from anchor.
   symbol?:   string;         // Optional decorative prefix. e.g. "→" "◊" "∞"
   no_label?:    boolean;     // If true, suppresses the small uppercase label above the h2
+  no_pt?:       boolean;     // If true, suppresses pt-12 — use for sub-sections within the same parent section
   label_only?:  boolean;     // If true, renders only the small label — no h2 below it
 };
 
@@ -142,21 +149,47 @@ export type MentalModelsBlock = {
 };
 
 export type KeyInsightsBlock = {
-  type:  "key_insights";
-  items: { heading: string; before?: string; after?: string; body?: string }[];
+  type:     "key_insights";
+  variant?: "table" | "list";  // "table" (default) = 3-col METRIC/BEFORE/AFTER; "list" = ruled insight list
+  items:    { heading: string; before?: string; after?: string; body?: string }[];
 };
 
 export type CalloutBlock = {
   type:    "callout";
   heading: string;           // Bold label line, e.g. "The guiding principle throughout;"
   body:    string;           // Light text below the left-rule border
+  no_icon?: boolean;         // If true, suppresses the decorative quotation mark SVG
 };
 
 export type ResearchCalloutBlock = {
-  type:    "research_callout";
-  label?:  string;    // Header label text. Default: "KEY FINDINGS". e.g. "STRATEGIC DESIGN DECISION"
-  items?:  string[];  // Bullet list items. Use either items or body, not both.
-  body?:   string;    // Single paragraph body. Use when content is not a list.
+  type:     "research_callout";
+  variant?: "default" | "metrics"; // "metrics" = bordered table-cell layout with check icons. Default: "default"
+  label?:   string;    // Header label text. Default: "KEY FINDINGS". e.g. "STRATEGIC DESIGN DECISION"
+  items?:   string[];  // Bullet list items. Use either items or body, not both.
+  body?:    string;    // Single paragraph body. Use when content is not a list.
+};
+
+export type ComparisonTableBlock = {
+  type:         "comparison_table";
+  variant?:     "flow";              // "flow" = vertical columns with arrow connectors between rows. Default = standard side-by-side grid.
+  left_header:  string;              // e.g. "THE EXISTING SYSTEM" — rendered in #a3a3a3
+  right_header: string;              // e.g. "THE TARGET STATE"    — rendered in #4ade80
+  rows:         { left: string; right: string }[];
+};
+
+export type NumberedListBlock = {
+  type:   "numbered_list";
+  label?: string;   // Optional header label cell. e.g. "COMPONENT VALIDATION RULES"
+  items:  { heading: string; body?: string }[];
+};
+
+export type PersonaColumnsBlock = {
+  type:    "persona_columns";
+  columns: {
+    label: string;   // e.g. "INDIVIDUAL" — rendered in mono uppercase #a3a3a3
+    name:  string;   // e.g. "Ella" — rendered bold
+    body:  string;   // paragraph describing the persona
+  }[];
 };
 
 export type CanvasCollageBlock = {

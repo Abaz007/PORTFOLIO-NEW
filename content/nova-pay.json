@@ -1,31 +1,569 @@
 {
   "slug": "nova-pay",
   "meta": {
-    "title": "Safe Haven IBS Redesign",
+    "title": "Safe Haven Internet Banking System Redesign",
     "descriptor": "The Journey",
     "role": "Lead Product Designer",
     "timeline": "2024–2025",
     "cover_image": "https://placehold.co/2040x1500/1e1e1e/525252?text=Safehaven+IBS",
     "cover_video": "https://res.cloudinary.com/dbtws7amv/video/upload/w_1360,h_1000,c_fill,q_auto:good,f_mp4,br_1500k/v1774021109/main_files_2_w82er8.mov"
   },
-  "hero_image": "https://placehold.co/1400x700/1e1e1e/525252?text=Nova+Pay+Hero",
+  "hero_image": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449188/1_wtcxzd.png",
+  "intro": [
+    "Safe Haven MFB is a Nigerian digital bank offering personal banking, business banking, and banking-as-a-service, making banking smart and accessible to everyone. Serving individual account holders, SMEs, fintechs, and enterprises, Safe Haven's reach extends beyond Nigeria through its developer-facing Banking-as-a-Service APIs."
+  ],
+  "my_role": "I was the principal designer on the redesign: responsible for strategy, architecture, systems thinking, and the quality of every design decision across all five surfaces. I led a lean team of two to three designers, delegating specific workstreams while maintaining design leadership and convergence authority across the project.",
+  "no_hero_divider": true,
   "blocks": [
+    {
+      "type": "section_heading",
+      "text": "",
+      "anchor": "outcome",
+      "label_only": true
+    },
     {
       "type": "stat_row",
       "stats": [
-        { "value": "—", "label": "Placeholder stat", "sign": "positive" },
-        { "value": "—", "label": "Placeholder stat", "sign": "positive" },
-        { "value": "—", "label": "Placeholder stat", "sign": "positive" }
+        { "value": "₦1B+",  "label": "Daily Transfer Volume", "sign": "positive" },
+        { "value": "26×",   "label": "Revenue Growth",        "sign": "positive" },
+        { "value": "40%",   "label": "User Base Growth",      "sign": "positive" },
+        { "value": "4.8★",  "label": "App Store Rating",      "sign": "positive" }
       ]
     },
     {
       "type": "section_heading",
-      "anchor": "overview",
-      "text": "Overview"
+      "text": "A bank with world-class infrastructure but users were churning and features were failing.",
+      "anchor": "the-problem"
     },
     {
       "type": "paragraph",
-      "text": "Placeholder content — update this with your Nova Pay case study details."
+      "text": "By 2024, the platform had accumulated a paradox common to fast-growing fintechs: the underlying infrastructure was genuinely excellent, but users couldn't access what was under the hood."
+    },
+    {
+      "type": "paragraph",
+      "text": "The signals were unambiguous"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "App Store ratings had fallen to less than 2.5, a visible, public indictment",
+        "Daily active users declining steadily across both individual and business segments",
+        "Transaction volume suppressed: under 100M naira monthly, a fraction of potential",
+        "Support ticket volume high and growing: compliance complications, account upgrades, card management failures",
+        "New features shipping but performing poorly, with low adoption that initially looked like product-market fit problems",
+        "Revenue had dropped sharply; both individual and business customers were churning"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The business impact was acute. Revenue had dropped sharply. Both individual and business customers were churning. A platform built on strong technical foundations was haemorrhaging trust at the surface."
+    },
+    {
+      "type": "paragraph",
+      "text": "There was also an internal compounding problem: a significant gap between design and engineering implementation. Designs were handed off correctly (the tooling and process were right) but what shipped often didn't match what was designed. Inconsistency was accumulating across the entire product surface at a systemic level."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449187/2_vvgwex.png",
+      "alt": "Safe Haven IBS dashboard showing transaction analytics",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "A full overhaul. Every surface. From the ground up.",
+      "anchor": "the-mandate"
+    },
+    {
+      "type": "paragraph",
+      "text": "In Q4 2024, the decision was made at the executive level: a complete redesign of Safe Haven's entire Internet Banking System."
+    },
+    {
+      "type": "subheading",
+      "text": "Platforms in Scope"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "Individual Internet Banking: native mobile app (iOS & Android) and web application",
+        "Corporate Banking: native mobile app (iOS & Android) and web application, Developer & Fintech Tools",
+        "Responsive web designs",
+        "Public website (deferred to subsequent release)"
+      ]
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449188/3_rn4kaj.png",
+      "alt": "Safe Haven IBS redesigned interface",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Before anything else, let's take a deep dive",
+      "anchor": "gathering-insight"
+    },
+    {
+      "type": "paragraph",
+      "text": "I led a comprehensive review of the existing Internet Banking System across every touchpoint, covering both individual and business surfaces. This was a deep, structured team investigation across three dimensions: design audit, UX audit, and performance audit."
+    },
+    {
+      "type": "subheading",
+      "text": "What the Audit Revealed"
+    },
+    {
+      "type": "paragraph",
+      "text": "The findings were worse than expected. The product had accumulated years of additive feature development without a coherent design system to govern it."
+    },
+    {
+      "type": "comparison_table",
+      "left_header": "THE EXISTING SYSTEM",
+      "right_header": "THE TARGET STATE",
+      "rows": [
+        { "left": "100+ distinct shades of blue in active production use",            "right": "Single, purposeful colour system built on semantic tokens" },
+        { "left": "Input fields with 10 different shades of grey, none matching",     "right": "One rationalised, documented component per UI pattern" },
+        { "left": "Core components with 6+ design variants simultaneously live",      "right": "Design system as the single source of truth" },
+        { "left": "No unified token system across the entire product",                "right": "IA restructured around where users expect features" },
+        { "left": "Features placed where engineers found room, not where users look", "right": "In-app feature communication for every release" },
+        { "left": "High-value features invisible to the majority of users",           "right": "Compliance onboarding entirely within Safe Haven" },
+        { "left": "Broken Agency Banking onboarding requiring an external app",       "right": "Engineering building from a shared component contract" }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449187/4_ops1eo.png",
+      "alt": "Safe Haven IBS audit findings",
+      "width": "contained"
+    },
+    {
+      "type": "callout",
+      "heading": "What led to the Audit",
+      "body": "During a development review, I noticed one implementation that didn't match the design. I flagged it, and then another appeared. And another. That moment triggered the full audit. What looked like isolated handoff errors turned out to be a systemic problem accumulating across the entire codebase for years.",
+      "no_icon": true
+    },
+    {
+      "type": "subheading",
+      "text": "User Research"
+    },
+    {
+      "type": "paragraph",
+      "text": "The audit gave us the internal diagnosis. We validated it externally through support ticket analysis (a systematic review of complaint patterns) and user testing (structured observation of how real users navigated the existing system)."
+    },
+    {
+      "type": "blockquote",
+      "text": "Oh this is so good. I didn't even know it existed and it's such a need right now. Keeping up with payment schedules for salary, subscriptions... I can just put these payments on a schedule.",
+      "attribution": "From a user, on discovering the recurring transaction feature that had been live in the product for months."
+    },
+    {
+      "type": "paragraph",
+      "text": "This was the pattern across multiple high-value features. The discoverability failure wasn't a feature quality problem. It was an architecture and communication problem. Users who found the features loved them. Almost nobody was finding them."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449188/5_a1resz.png",
+      "alt": "Safe Haven IBS recurring transactions and transfer records screens",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "The UX strategy framework",
+      "anchor": "ux-strategy"
+    },
+    {
+      "type": "paragraph",
+      "text": "With a diagnostic this clear, the risk was moving too fast. Audit data can drive design into over-correction: fixing every finding, redesigning everything at once, optimising for the audit rather than for the user. The strategy we set was deliberate: use the findings to set direction, but let human outcomes anchor every decision."
+    },
+    {
+      "type": "callout",
+      "heading": "If we do a great job on this redesign, whose life gets improved and how?",
+      "body": "This question became the orienting frame for everything that followed.",
+      "no_icon": true
+    },
+    {
+      "type": "paragraph",
+      "text": "Answering this question forced us beyond feature lists and business metrics to think in terms of human outcomes."
+    },
+    {
+      "type": "persona_columns",
+      "columns": [
+        {
+          "label": "INDIVIDUAL",
+          "name": "Ella",
+          "body": "If we do a great job on the redesign of the Internet Banking, Ella will be able to bank seamlessly, discovering and accessing smart banking features without friction, confusion, or support dependency."
+        },
+        {
+          "label": "CORPORATE",
+          "name": "MEL Group",
+          "body": "If we do a great job on this redesign, MEL Group will be able to integrate Safe Haven APIs, use business banking tools seamlessly, and complete compliance onboarding without external dependencies or support strain."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449188/6_rf83mr.png",
+      "alt": "Persona research artefacts for Ella and MEL Group",
+      "width": "contained"
+    },
+    {
+      "type": "research_callout",
+      "variant": "metrics",
+      "label": "SUCCESS METRICS",
+      "items": [
+        "Increase daily active users and reduce churn across both segments",
+        "Grow transaction volume, the core health signal for a banking platform",
+        "Reduce support ticket volume by resolving root causes of top complaint categories",
+        "Improve App Store ratings as a proxy for overall experience quality",
+        "Increase feature adoption, especially for high-value features with low discovery rates"
+      ]
+    },
+    {
+      "type": "section_heading",
+      "text": "Building the foundation before anything - The Design System V1",
+      "anchor": "design"
+    },
+    {
+      "type": "paragraph",
+      "text": "Before designing a single new screen, I made a foundational call: the design system comes first. Every piece of accumulated inconsistency across the platform could be traced back to the absence of a single source of truth. We were not going to repeat that mistake."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449192/7_zwle6m.png",
+      "alt": "Design system overview",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "Primitive Tokens: Starting From Structure"
+    },
+    {
+      "type": "paragraph",
+      "text": "I built the design foundation from scratch, constrained by the existing brand but establishing proper structure where none had existed. The foundation covered colour, typography, spacing, icons, and elevation. I set the primitive layer personally, then delegated design token construction to the first designer and accessibility testing to the second."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449189/8_twxigd.png",
+      "alt": "Design token architecture",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449188/9_mdcylc.png",
+      "alt": "Token system reference",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "Component Validation Rules"
+    },
+    {
+      "type": "paragraph",
+      "text": "Every component had to pass all validation criteria before being admitted to the library. No exceptions."
+    },
+    {
+      "type": "numbered_list",
+      "label": "COMPONENT VALIDATION RULES",
+      "items": [
+        { "heading": "Token Compliance",         "body": "Every visual property expressed through design tokens. No hardcoded values permitted anywhere in the library." },
+        { "heading": "Platform Compatibility",   "body": "Designed and tested for mobile (iOS & Android), desktop, and responsive web. All three. Not assumed." },
+        { "heading": "State Completeness",       "body": "Every interactive component must account for: default, hover, active, focused, disabled, loading, empty, error, and success states." },
+        { "heading": "Accessibility Compliance", "body": "WCAG AA contrast ratios. Minimum touch target sizes. Keyboard navigability. Tested, not assumed." },
+        { "heading": "Documentation",            "body": "Usage guidance and rules accompany every component before it is published to the library." }
+      ]
+    },
+    {
+      "type": "callout",
+      "heading": "Closing the Design–Engineering Gap",
+      "body": "The implementation mismatch wasn't a handoff problem. It was a systems problem. Without a component library that developers could build from directly, every feature required individual interpretation of design files. Interpretation introduces drift. We ran a 4-week intensive developer sprint: engineers built the core component library in code from the design specifications. A shared QA cheat sheet, accessible to design, engineering, and stakeholders, governed every review. Columns for component specs, implementation remarks, and scalability plans. Design maintained it. Everyone owned it.",
+      "no_icon": true
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449189/10_ypirvs.png",
+      "alt": "QA cheat sheet and component library",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Now to the platform redesigns.",
+      "anchor": "platform-redesigns",
+      "no_label": true
+    },
+    {
+      "type": "paragraph",
+      "text": "With the design system in place, redesign work began across all platforms. The process was deliberately non-linear: mobile and desktop ran in parallel, and insights from one platform informed decisions on another through continuous iteration and beta feedback cycles."
+    },
+    {
+      "type": "subheading",
+      "text": "Individual Banking: Mobile App (iOS & Android)"
+    },
+    {
+      "type": "paragraph",
+      "text": "The mobile app was the primary touchpoint for individual customers and the most visible experience failure. The core focus areas were;"
+    },
+    {
+      "type": "numbered_list",
+      "items": [
+        { "heading": "IA restructure" },
+        { "heading": "In-app feature communication" },
+        { "heading": "Onboarding rebuild" },
+        { "heading": "Core App Feature Redesign" }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449199/11_cq9k0b.png",
+      "alt": "Individual banking mobile app screens",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449192/12_ketush.png",
+      "alt": "Mobile app feature screens",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449190/13_zephqf.png",
+      "alt": "Mobile onboarding flow",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449196/14_cigtjr.png",
+      "alt": "Individual banking mobile screens continued",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449192/15_qcrtpx.png",
+      "alt": "Individual banking mobile screens continued",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449194/16_wlvtie.png",
+      "alt": "Individual banking mobile screens continued",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449202/17_dg6mfq.png",
+      "alt": "Individual banking mobile screens continued",
+      "width": "contained"
+    },
+    {
+      "type": "paragraph",
+      "text": "Card operations, virtual and physical card creation, customisation, and shipment etc. were entirely manual. Every step cost time and money. The strategic decision to automate this end-to-end was also a design decision: take what operations staff handled behind the scenes and put it directly in the hands of users, without losing a single step in translation."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449200/18_mvxikx.png",
+      "alt": "Virtual card creation flow",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449200/19_rnvj5b.png",
+      "alt": "Card management screens",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449196/20_e9i6wr.png",
+      "alt": "Physical card ordering flow",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "Individual Banking: Web Application"
+    },
+    {
+      "type": "paragraph",
+      "text": "The web experience was designed in parallel with the mobile app, maintaining visual and functional consistency across platforms while accounting for the different interaction model and information density appropriate for desktop contexts. Desktop users have more screen real estate and a different mental model for navigation; the redesign respected this without diverging from the unified design system."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449198/21_ibuvwp.png",
+      "alt": "Individual banking web application",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449198/22_mtyqcb.png",
+      "alt": "Web dashboard and features",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "Corporate Banking"
+    },
+    {
+      "type": "paragraph",
+      "text": "The most significant design challenge across all the platforms was the Corporate Banking compliance onboarding flow. This was a genuinely broken experience causing user drop-off and unsustainable support load."
+    },
+    {
+      "type": "comparison_table",
+      "variant": "flow",
+      "left_header": "THE BROKEN JOURNEY",
+      "right_header": "THE REDESIGNED JOURNEY",
+      "rows": [
+        { "left": "User signs up on Safe Haven",                         "right": "User signs up → immediately enters a sandbox environment" },
+        { "left": "Must pause and exit the application entirely",        "right": "Compliance data collection simulated inside Safe Haven" },
+        { "left": "Navigate to a separate external compliance dashboard","right": "User authenticates with universal credentials" },
+        { "left": "Complete documentation, submit, wait for approval",   "right": "Compliance record created automatically on the infrastructure" },
+        { "left": "Back-and-forth could take days or weeks",             "right": "Compliance team notified of new pending record" },
+        { "left": "Return to Safe Haven to continue onboarding",         "right": "No external application. No broken handoff. No drop-off." },
+        { "left": "Significant drop-off at every external transition",   "right": "User never leaves Safe Haven throughout the process" }
+      ]
+    },
+    {
+      "type": "callout",
+      "heading": "The Stakeholder Challenge and how I handled it",
+      "body": "A stakeholder challenged the multi-step data collection flow, arguing that the number of clicks made it feel complex. He was right that it was multi-step. I disagreed that this was a problem, and said so. For business customers completing a regulatory compliance process and handing over sensitive company data, a process that feels thorough builds trust. A compliance flow that completes in two clicks does not inspire confidence. The psychological signal of rigour was a feature, not a flaw. Beyond trust: cognitive chunking reduced overwhelm; progress indicators created commitment; error recovery was localised to individual steps. The stakeholder accepted the reasoning. The flow shipped as designed.",
+      "no_icon": true
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449202/23_wwrgcf.png",
+      "alt": "Corporate banking screens",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449200/24_rl7amn.png",
+      "alt": "Corporate compliance onboarding flow",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449201/25_yugaaf.png",
+      "alt": "Corporate dashboard",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "Developer & Fintech Tools"
+    },
+    {
+      "type": "paragraph",
+      "text": "The developer platform served technical teams and fintechs building on Safe Haven's BaaS infrastructure: users with high technical fluency and low tolerance for interface friction. The redesign addressed API access and key management, sandbox environment experience, and fintech onboarding, integrating the same compliance architecture built for business banking where applicable."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449202/26_ugqvek.png",
+      "alt": "Developer portal and API tools",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449204/27_wgbvvz.png",
+      "alt": "Fintech onboarding flow",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449202/28_kqkz0c.png",
+      "alt": "API documentation interface",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Test, refine, repeat. Then Ship",
+      "anchor": "beta-iteration-launch",
+      "label": "Beta, Iteration & Launch"
+    },
+    {
+      "type": "paragraph",
+      "text": "Beta launched in October 2025 with three participant groups: internal staff, selected external customers, and members of Safe Haven's community programme. The objective was not just to find bugs. It was to observe real behaviour in context and identify what the design had missed or underestimated."
+    },
+    {
+      "type": "subheading",
+      "text": "How We Collected Feedback"
+    },
+    {
+      "type": "paragraph",
+      "text": "Feedback channels were matched to user type. Business customers communicated through Slack, allowing for detailed, technical back-and-forth. Individual users provided feedback through in-app mechanisms and direct conversations. Internal staff surfaced edge cases that external users were less likely to flag early."
+    },
+    {
+      "type": "subheading",
+      "text": "What Changed Between Beta and Launch"
+    },
+    {
+      "type": "paragraph",
+      "text": "The beta-to-launch cycle produced meaningful, user-validated additions. Several features that had been planned but not fully specified were accelerated into the launch build based on signal from beta participants:"
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "Account summary: A consolidated view of account status and recent activity, surfaced prominently on the home experience. Beta users navigated to multiple screens to piece together information that should have been available at a glance. This fixed it.",
+        "Quarterly wrap: A periodic summary of a user's banking activity over time, giving individuals a sense of their financial behaviour. The idea had been planned; beta accelerated the decision to include it in the launch build.",
+        "Feature and flow refinements: Multiple surfaces were refined based on observed navigation patterns: where users paused, where they backtracked, and where they expected to find things they couldn't locate."
+      ]
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774449204/29_obc4j0.png",
+      "alt": "Beta testing and iteration screens",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Results and Impacts after launch",
+      "anchor": "outcomes",
+      "label": "Outcomes"
+    },
+    {
+      "type": "paragraph",
+      "text": "The results were unambiguous. Across every signal that had indicated failure before the redesign, the platform was operating at a fundamentally different level."
+    },
+    {
+      "type": "paragraph",
+      "text": "The beta-to-launch cycle produced meaningful, user-validated additions. Several features that had been planned but not fully specified were accelerated into the launch build based on signal from beta participants:"
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "Transaction volume shifted from under ₦100M monthly to over ₦1B in daily transfers, immediate at launch and building week over week",
+        "Revenue grew by more than 26× within four months of the full launch",
+        "User base expanded approximately 40% across both individual and business segments",
+        "App Store ratings climbed from approximately 2-something to 4.8, a near-complete reversal of public user sentiment",
+        "Support ticket volume dropped sharply, particularly in compliance, account upgrade, and card management: the top three pre-redesign complaint categories"
+      ]
+    },
+    {
+      "type": "section_heading",
+      "text": "Getting Buy-In on the Scope",
+      "anchor": "challenges",
+      "label": "Challenges"
+    },
+    {
+      "type": "paragraph",
+      "text": "When I disclosed the full project scope to the team, the response was close to alarm. The scope was objectively large. What made the difference was not minimising it but contextualising it. I walked the team through the framework, the phased approach, how the design system foundation would multiply efficiency across all platforms, and the progress metrics that would make the work feel measurable rather than infinite. I got genuine buy-in, not reluctant compliance."
+    },
+    {
+      "type": "section_heading",
+      "text": "Navigating Stakeholder Dynamics",
+      "anchor": "challenges-stakeholder",
+      "no_label": true,
+      "no_pt": true
+    },
+    {
+      "type": "paragraph",
+      "text": "As Head of Design reporting directly to the CEO, I operated at the intersection of executive expectations and product reality. This meant making calls in the midst of authority and holding those calls when challenged."
+    },
+    {
+      "type": "section_heading",
+      "text": "Formalise research earlier",
+      "anchor": "reflection",
+      "label": "Reflection"
+    },
+    {
+      "type": "paragraph",
+      "text": "The support ticket analysis and user testing were valuable and validated the audit findings clearly. But a structured, ongoing research practice established earlier would have surfaced the discoverability problem before features were built and failed. Research is most powerful when it prevents wrong decisions."
     }
   ]
 }

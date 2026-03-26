@@ -1,10 +1,10 @@
 import type { CalloutBlock } from "@/lib/types";
 
-export function Callout({ heading, body }: CalloutBlock) {
+export function Callout({ heading, body, no_icon }: CalloutBlock) {
   return (
     <div className="!mt-20 mb-16 relative flex flex-col gap-3 rounded-[10px] bg-[#262626] p-5 overflow-hidden">
       {/* Decorative quote mark — top-right, rotated 180° */}
-      <svg
+      {!no_icon && <svg
         className="absolute top-0 right-0 opacity-20 pointer-events-none"
         width="80"
         height="60"
@@ -23,7 +23,7 @@ export function Callout({ heading, body }: CalloutBlock) {
         >
           &ldquo;
         </text>
-      </svg>
+      </svg>}
 
       <p className="font-body font-medium text-[16px] text-[#d4d4d4] leading-[1.5]">
         {heading}

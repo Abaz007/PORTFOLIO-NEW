@@ -1,6 +1,27 @@
 import type { KeyInsightsBlock } from "@/lib/types";
 
-export function KeyInsights({ items }: KeyInsightsBlock) {
+export function KeyInsights({ variant = "table", items }: KeyInsightsBlock) {
+  if (variant === "list") {
+    return (
+      <div className="w-full flex flex-col">
+        <div className="h-px bg-[#171717]" />
+        {items.map((item, i) => (
+          <div key={i}>
+            <div className="flex flex-col gap-1 py-6">
+              <p className="font-display text-[18px] text-[#e5e5e5] leading-[1.4]">
+                {item.heading}
+              </p>
+              <p className="font-body font-light text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.096px]">
+                {item.body}
+              </p>
+            </div>
+            <div className="h-px bg-[#171717]" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="w-full overflow-hidden rounded-[10px] border border-[#262626]">
       {/* Header row */}

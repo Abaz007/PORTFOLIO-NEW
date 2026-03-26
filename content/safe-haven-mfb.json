@@ -122,6 +122,7 @@
     },
     {
       "type": "key_insights",
+      "variant": "list",
       "items": [
         {
           "heading": "Transparency over reassurance",

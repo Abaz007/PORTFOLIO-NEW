@@ -1,12 +1,12 @@
 import type { SectionHeadingBlock } from "@/lib/types";
 
-export function SectionHeading({ text, anchor, symbol, no_label, label_only }: SectionHeadingBlock) {
-  const label = anchor.replace(/-/g, " ").toUpperCase();
+export function SectionHeading({ text, anchor, label: labelOverride, symbol, no_label, no_pt, label_only }: SectionHeadingBlock) {
+  const label = labelOverride ?? anchor.replace(/-/g, " ").toUpperCase();
 
   return (
-    <div id={anchor} className="flex flex-col gap-4 scroll-mt-24 pt-12">
+    <div id={anchor} className={`flex flex-col gap-4 scroll-mt-24 ${no_pt ? "" : "pt-12"}`}>
       {!no_label && (
-        <p className="font-body text-[13px] text-[#737373] tracking-[0.6px] leading-[1.73]">
+        <p className="font-body font-light text-[13px] text-[#737373] tracking-[0.6px] leading-[1.73] uppercase">
           {label}
         </p>
       )}

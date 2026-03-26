@@ -15,3 +15,6 @@ export { PullQuote }      from "./PullQuote";
 export { KeyInsights }    from "./KeyInsights";
 export { MentalModels }      from "./MentalModels";
 export { ResearchCallout }   from "./ResearchCallout";
+export { ComparisonTable }   from "./ComparisonTable";
+export { PersonaColumns }    from "./PersonaColumns";
+export { NumberedList }      from "./NumberedList";

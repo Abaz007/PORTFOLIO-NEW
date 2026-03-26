@@ -3,7 +3,7 @@ import * as B from "@/components/blocks";
 
 export function BlockRenderer({ blocks }: { blocks: ContentBlock[] }) {
   return (
-    <div className="space-y-12">
+    <div className="space-y-6">
       {blocks.map((block, index) => {
         const prev = index > 0 ? blocks[index - 1].type : null;
         switch (block.type) {
@@ -25,8 +25,11 @@ export function BlockRenderer({ blocks }: { blocks: ContentBlock[] }) {
           case "insight_list":    return <B.InsightList    key={index} {...block} />;
           case "pull_quote":      return <B.PullQuote      key={index} {...block} />;
           case "key_insights":    return <B.KeyInsights    key={index} {...block} />;
-          case "mental_models":     return <B.MentalModels     key={index} {...block} />;
-          case "research_callout":  return <B.ResearchCallout  key={index} {...block} />;
+          case "mental_models":      return <B.MentalModels      key={index} {...block} />;
+          case "research_callout":   return <B.ResearchCallout   key={index} {...block} />;
+          case "comparison_table":   return <B.ComparisonTable   key={index} {...block} />;
+          case "persona_columns":    return <B.PersonaColumns    key={index} {...block} />;
+          case "numbered_list":      return <B.NumberedList      key={index} {...block} />;
           default:
             // TypeScript exhaustiveness check
             const _exhaustive: never = block;
