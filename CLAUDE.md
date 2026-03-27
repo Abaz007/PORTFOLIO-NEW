@@ -30,6 +30,10 @@ Case studies open as a floating modal overlay (URL changes, homepage stays visib
 
 Both routes require `generateStaticParams()` for SSG. `CaseStudySheet` is a client component that handles scroll lock, Escape key, and backdrop click to close via `router.back()`.
 
+**Modal navigation gotcha**: "Next/Prev Project" inside the modal must use `router.replace` (not `router.push`) so the history stack stays `[home → current-study]` regardless of how many studies are stepped through. `CaseStudyFooter` accepts an `isModal` boolean prop — pass `isModal` from `CaseStudySheet` to enable this. The full-page fallback uses `router.push`. Never revert next/prev inside the modal to a plain `<Link>` — it will cause close to return to the previous modal instead of home.
+
+**Modal scrollbar**: The scrollable div inside the modal card has the `.modal-scroll` CSS class (defined in `styles/globals.css`) which styles the webkit scrollbar to match the dark background.
+
 The z-index stack: Nav (`z-50`) → backdrop (`z-[55]`) → modal card (`z-[60]`). Modal animations are defined as CSS keyframes in `globals.css` (`.modal-appear`, `.backdrop-in`) — not Tailwind JIT animations, which are unreliable after cache clears.
 
 ### Content system
@@ -41,6 +45,7 @@ Case studies live in `/content/*.json`, fully typed in `lib/types.ts`. To add a 
 `lib/content.ts` reads JSON files at build time via Node `fs`. Key fields on `CaseStudy`:
 - `hero_image` — Cloudinary URL for the banner inside `CaseStudyHero`
 - `intro` — optional `string[]` rendered between the hero image and My Role section
+- `intro_callout` — optional inline callout block rendered after `intro` paragraphs, before My Role
 - `my_role` — optional string overriding the hardcoded My Role description in `CaseStudyHero`
 - `no_hero_divider` — if `true`, suppresses the rule at the bottom of the hero section
 - `blocks` — ordered content array rendered by `BlockRenderer`
@@ -55,9 +60,9 @@ Case studies live in `/content/*.json`, fully typed in `lib/types.ts`. To add a 
 
 #### Block variants and flags
 
-- **`section_heading`**: `label_only: true` renders only the small uppercase label with no h2. `no_label: true` suppresses the label. The label text is auto-derived from the `anchor` field by replacing hyphens with spaces and uppercasing.
+- **`section_heading`**: `label_only: true` renders only the small uppercase label with no h2. `no_label: true` suppresses the label. `no_pt: true` suppresses the default `pt-12` top padding (use when a section heading immediately follows another block without needing extra spacing). The label text is auto-derived from the `anchor` field by replacing hyphens with spaces and uppercasing.
 - **`key_insights`**: `variant: "table"` (default) renders a 3-column METRIC/BEFORE/AFTER grid. `variant: "list"` renders a vertically ruled list with Recoleta headings — used on safe-haven-mfb.
-- **`research_callout`**: `variant: "default"` (default) renders a `#262626` card with a green left-border and bullet list. `variant: "metrics"` renders a bordered 2-cell layout (label cell + items cell) with green checkmark icons — used on nova-pay.
+- **`research_callout`**: `variant: "default"` (default) renders a flat list of items, each with a green filled-circle checkmark icon and separated by `border-[#262626]` horizontal dividers — no card wrapper. `variant: "metrics"` renders a bordered 2-cell layout (label cell + items cell) with green checkmark icons — used on nova-pay.
 - **`callout`**: `no_icon: true` suppresses the decorative quotation mark SVG — used on nova-pay.
 - **`numbered_list`**: Bordered 2-cell layout. Optional `label` renders a header cell (JetBrains Mono, `#a3a3a3`). Items cell has numbered bubbles (`01`, `02`…) with a mono `heading` in `#d4d4d4` and optional `body` in Helvetica Light `#a3a3a3`.
 - **`persona_columns`**: 2-column card layout. Each column has a stacked label cell and name+body cell, all with `border-[#262626]` borders. Uses `flex-1` on the body cell so both columns match height.

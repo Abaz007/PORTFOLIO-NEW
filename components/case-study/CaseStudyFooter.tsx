@@ -1,12 +1,26 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { CaseStudy } from "@/lib/types";
 
 type Props = {
   prev: CaseStudy | null;
   next: CaseStudy | null;
+  isModal?: boolean;
 };
 
-export function CaseStudyFooter({ prev, next }: Props) {
+export function CaseStudyFooter({ prev, next, isModal = false }: Props) {
+  const router = useRouter();
+
+  function navigate(slug: string) {
+    if (isModal) {
+      router.replace(`/case-study/${slug}`);
+    } else {
+      router.push(`/case-study/${slug}`);
+    }
+  }
+
   return (
     <div className="max-w-reading mx-auto px-6 pt-16 pb-24">
       <h2 className="font-display text-[36px] text-[#d4d4d4] leading-[1.4] mb-14">
@@ -24,19 +38,19 @@ export function CaseStudyFooter({ prev, next }: Props) {
         </Link>
 
         {next ? (
-          <Link
-            href={`/case-study/${next.slug}`}
+          <button
+            onClick={() => navigate(next.slug)}
             className="font-body text-[13px] text-[#737373] tracking-[0.6px] leading-[1.73] uppercase underline decoration-dotted hover:text-[#d4d4d4] transition-colors duration-250"
           >
             Next Project
-          </Link>
+          </button>
         ) : prev ? (
-          <Link
-            href={`/case-study/${prev.slug}`}
+          <button
+            onClick={() => navigate(prev.slug)}
             className="font-body text-[13px] text-[#737373] tracking-[0.6px] leading-[1.73] uppercase underline decoration-dotted hover:text-[#d4d4d4] transition-colors duration-250"
           >
             Prev Project
-          </Link>
+          </button>
         ) : null}
       </div>
     </div>

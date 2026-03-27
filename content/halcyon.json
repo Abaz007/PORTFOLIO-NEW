@@ -18,5 +18,498 @@
     "body": "\"How do we build a community-driven NFT platform that feels as approachable as Instagram but as capable as OpenSea, without overwhelming the growing number of first-time crypto users in our audience?\"",
     "no_icon": true
   },
-  "blocks": []
+  "blocks": [
+    {
+      "type": "section_heading",
+      "text": "Where Funge Started",
+      "anchor": "context"
+    },
+    {
+      "type": "paragraph",
+      "text": "The V1 product was a straightforward NFT marketplace: list, browse, buy. It ran on Android, leveraged Polygon's low transaction fees as its primary value proposition, and had a small but engaged community on Discord. It did what it said on the tin, but not much more."
+    },
+    {
+      "type": "paragraph",
+      "text": "The problem was not the concept. NFTs were attracting a new wave of users beyond the crypto-native crowd: artists, collectors, and curious newcomers who had no tolerance for the steep learning curves that defined established platforms like OpenSea or Rarible. Funge had an opening. The question was whether the product could grow into it."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537513/FRAME-1_womkmy.png",
+      "alt": "V1 Funge app — Posting flow screenshots",
+      "caption": "V1 Posting flow",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "The Business Problem"
+    },
+    {
+      "type": "paragraph",
+      "text": "The client's ask was broad: expand the platform scope based on user feedback. After reviewing the data, it became clear there were four distinct problems stacked inside that brief:"
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "Retention was shallow. Buy/sell mechanics alone were not creating reasons to return daily.",
+        "Discovery was broken. Users could not find collections without direct links.",
+        "The onboarding gap was wide. Beginners dropped off before completing their first transaction.",
+        "The MVP's visual execution had undermined trust. Low contrast, clashing backgrounds, no clear type hierarchy."
+      ]
+    },
+    {
+      "type": "callout",
+      "heading": "Design principle adopted early",
+      "body": "Every feature decision would be evaluated against one question: does this reduce the distance between a curious newcomer and their first successful NFT interaction?",
+      "no_icon": true
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537518/FRAME-2_o3hl8f.png",
+      "alt": "V1 Funge app — Sign Up flow and Settings screenshots",
+      "caption": "V1 Sign Up flow and Settings screens",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Understanding the Problem Space",
+      "anchor": "research-discovery",
+      "label": "RESEARCH + DISCOVERY"
+    },
+    {
+      "type": "paragraph",
+      "text": "I structured the research around three parallel tracks that are essential on marketplace projects: understanding the existing product's failure modes, understanding user mental models (not just pain points), and understanding where competitors had created real competitive moats versus superficial ones."
+    },
+    {
+      "type": "comparison_table",
+      "left_header": "WHAT I REVIEWED",
+      "right_header": "WHAT I WAS LOOKING FOR",
+      "rows": [
+        {
+          "left": "Full end-to-end walkthrough of V1 Android app",
+          "right": "Friction points that caused task abandonment"
+        },
+        {
+          "left": "Discord community feedback channel (qualitative mining)",
+          "right": "Language users used to describe their needs vs. client assumptions"
+        },
+        {
+          "left": "Competitor platforms: OpenSea, LooksRare, Rarible",
+          "right": "Moments where the UI created confusion or distrust"
+        },
+        {
+          "left": "No unified token system across the entire product",
+          "right": "Whitespace in the competitive landscape"
+        }
+      ]
+    },
+    {
+      "type": "subheading",
+      "text": "Heuristic Evaluation of V1 MVP"
+    },
+    {
+      "type": "paragraph",
+      "text": "Before running any user research, I conducted a structured heuristic evaluation of the existing app. This is a step I insist on before any user sessions."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537512/FRAME-3_el8f5s.png",
+      "alt": "Heuristic evaluation of V1 Funge app",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "Community Research via Discord"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Discord community channel was a goldmine that had not been properly synthesised. I spent several sessions doing structured qualitative analysis of the feedback threads: tagging comments by theme, sentiment, and recurrence. This gave me signal on what was genuinely bothering users versus what was noise."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774613314/DISORD_urb4l5.png",
+      "alt": "Discord community research screenshots",
+      "width": "contained"
+    },
+    {
+      "type": "callout",
+      "heading": "Key quote from community (paraphrased from Discord)",
+      "body": "\"I wanted to buy my first NFT through Funge because the gas fees are actually affordable here. But I gave up halfway because I had no idea what was happening after I clicked buy.\"",
+      "no_icon": true
+    },
+    {
+      "type": "subheading",
+      "text": "Survey: 110+ Respondents"
+    },
+    {
+      "type": "paragraph",
+      "text": "I designed a structured survey targeting the Funge community across three user archetypes: crypto-native collectors, independent creators, and newcomers to Web3. The goal was not to confirm assumptions but to surface the gaps between what the client believed users wanted and what users actually needed."
+    },
+    {
+      "type": "comparison_table",
+      "left_header": "SURVEY DESIGN APPROACH",
+      "right_header": "KEY QUANTITATIVE FINDINGS",
+      "rows": [
+        {
+          "left": "Questions grouped by user segment, not feature area",
+          "right": "87.7% cited gas fees on other platforms as a primary frustration"
+        },
+        {
+          "left": "Mixed methods: Likert scales plus open-ended fields",
+          "right": "62.1% wanted multi-blockchain support"
+        },
+        {
+          "left": "Deliberately avoided leading questions about specific features",
+          "right": "56.8% found the current platform hard to read"
+        },
+        {
+          "left": "Included competitive landscape questions to map mental models",
+          "right": "Majority of beginners cited \"not knowing what to do next\" as the primary drop-off trigger"
+        }
+      ]
+    },
+    {
+      "type": "subheading",
+      "text": "Competitive Analysis"
+    },
+    {
+      "type": "paragraph",
+      "text": "I focused the competitive analysis less on feature comparison and more on identifying the experience gaps the market had not addressed. The findings shaped the differentiation strategy more than any single internal insight."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537516/FRAME-4_jzshcz.png",
+      "alt": "Competitive analysis of NFT marketplaces",
+      "width": "contained"
+    },
+    {
+      "type": "callout",
+      "heading": "Strategic gap identified",
+      "body": "No major NFT marketplace had meaningfully invested in education and progressive onboarding. Every platform assumed users arrived with crypto literacy. This was Funge's most defensible opportunity: not just a social layer, but a learning layer built into the core experience.",
+      "no_icon": true
+    },
+    {
+      "type": "subheading",
+      "text": "User Personas"
+    },
+    {
+      "type": "paragraph",
+      "text": "Three personas were developed grounded in the research data: not archetypes invented in a workshop, but composite profiles built from actual survey responses and Discord quotes."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537514/FRAME-5_mn7wvz.png",
+      "alt": "User personas for Funge NFT Marketplace",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Aligning Goals to User Needs",
+      "anchor": "design-strategy",
+      "label": "DESIGN STRATEGY"
+    },
+    {
+      "type": "paragraph",
+      "text": "One of the most common failure modes on feature-expansion projects is building a roadmap that satisfies stakeholder ambition without genuinely serving user needs. The mitigation is always the same: make the alignment between business objectives and user problems explicit and visible before a single wire is drawn."
+    },
+    {
+      "type": "comparison_table",
+      "left_header": "BUSINESS OBJECTIVE",
+      "right_header": "USER NEED IT MAPS TO",
+      "rows": [
+        {
+          "left": "Social platform with feeds and community",
+          "right": "Users want to follow creators they trust and discover NFTs through people, not algorithms"
+        },
+        {
+          "left": "Wallet system with card and crypto payment",
+          "right": "Newcomers need to enter the market without needing pre-existing crypto holdings"
+        },
+        {
+          "left": "Learning and rewards system for beginners",
+          "right": "Low crypto literacy is the primary acquisition barrier; users need confidence, not just instructions"
+        },
+        {
+          "left": "Auction feature for scarce digital content",
+          "right": "Power users want pricing mechanisms that reflect genuine scarcity and collector dynamics"
+        }
+      ]
+    },
+    {
+      "type": "subheading",
+      "text": "Design Principles for Funge V2"
+    },
+    {
+      "type": "paragraph",
+      "text": "Rather than jumping straight into feature design, I worked with the team to establish a short set of design principles that would act as decision-making guardrails throughout the project. These are not values statements: they are testable constraints."
+    },
+    {
+      "type": "numbered_list",
+      "label": "DESIGN PRINCIPLES",
+      "items": [
+        {
+          "heading": "Progressive disclosure over feature sprawl",
+          "body": "Every complex feature should have a simple entry point. Advanced capability is revealed as users demonstrate readiness, not front-loaded in the UI."
+        },
+        {
+          "heading": "Transparency as trust-building",
+          "body": "Crypto is opaque enough. Every transaction state, fee estimate, and error message should tell users exactly what is happening and what they can do next."
+        },
+        {
+          "heading": "Social proof integrated, not appended",
+          "body": "Community features should not feel bolted on. Follow dynamics, creator reputation, and activity feeds need to be woven into the core purchase and discovery flows."
+        }
+      ]
+    },
+    {
+      "type": "section_heading",
+      "text": "Flows and Structure",
+      "anchor": "information-architecture",
+      "label": "INFORMATION ARCHITECTURE"
+    },
+    {
+      "type": "paragraph",
+      "text": "The V1 navigation was a symptom of a product built feature-by-feature without a coherent mental model. I rebuilt the IA from scratch using card sorting sessions with community members to understand how they naturally grouped platform capabilities, not how engineers had grouped them internally."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537512/FRAME-6_bypptg.png",
+      "alt": "User flow — Advanced Bidding Features / On-Chain Bidding",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537512/FRAME-7_nkuxid.png",
+      "alt": "User flow — Active Bids / Cancel Bid Feature",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537512/Frame_1000005280_aclkox.png",
+      "alt": "User flow — Market Place Features: Seller Post Types",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Building for Scale",
+      "anchor": "design-system",
+      "label": "DESIGN SYSTEM"
+    },
+    {
+      "type": "paragraph",
+      "text": "The V1 component library had been assembled reactively: one screen at a time. By the time I audited it, there were four different button styles in use with no clear hierarchy, three inconsistent input field states, and a colour palette that had drifted significantly from the brand guidelines. This was not a documentation problem. It was a structural one."
+    },
+    {
+      "type": "paragraph",
+      "text": "For a social marketplace with this many surface types (feeds, product detail pages, wallet interfaces, analytics dashboards, community areas), design consistency is not a nice-to-have. It is how users learn to trust the product. Inconsistency reads as instability, which is the last thing you want when real financial transactions are involved."
+    },
+    {
+      "type": "callout",
+      "heading": "Approach",
+      "body": "Conduct a full component audit before writing a single new component. Catalogue everything that exists, classify it by state (complete / broken / missing), then rebuild with scalability as the primary constraint, not just visual consistency.",
+      "no_icon": true
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537512/Frame_1000005280-1_uj3auf.png",
+      "alt": "Funge V2 design system — component library overview",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "Where the Thinking Happened",
+      "anchor": "key-design-decisions",
+      "label": "KEY DESIGN DECISIONS"
+    },
+    {
+      "type": "subheading",
+      "text": "The Social Feed: Discovery, Not Just Engagement"
+    },
+    {
+      "type": "paragraph",
+      "text": "The brief asked for \"community features similar to Discord\". My counter-proposal was that a Discord-clone inside a marketplace would split user attention between two fundamentally different contexts. Instead, I designed a social feed that keeps discovery and commerce tightly coupled: you follow a creator, see their work in your feed, and can act on it immediately."
+    },
+    {
+      "type": "paragraph",
+      "text": "The feed also integrated news content and trending collection data, positioning it as a reason to open the app daily rather than only when making a transaction."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537515/FRAME-8_mrx5oi.png",
+      "alt": "Funge social feed — discovery and commerce view with creator posts, NFT listings, and trending collections",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537515/FRAME-9_txc4jm.png",
+      "alt": "Funge social feed — Funge Points rewards panel and recent news integration",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "The Learning and Rewards System"
+    },
+    {
+      "type": "paragraph",
+      "text": "This was the feature I pushed hardest for during scoping. The data was unambiguous: beginner users were abandoning the platform not because they did not want to engage, but because they did not know what to do next. Every competitor had assumed crypto literacy. Funge could own the beginner experience."
+    },
+    {
+      "type": "paragraph",
+      "text": "I designed a contextual education layer that surfaces guidance at the exact moment a user needs it: not as a separate Help section, but embedded in the transaction flows. Combined with a rewards mechanism that reinforced completion of key milestones, this addressed the retention gap identified in research."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537520/FRAME-10_u98y42.png",
+      "alt": "Funge Rewards screen — Staking and My Points tabs with Funge Point Rewards and Point Rewards panels",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537518/FRAME-11_eun12s.png",
+      "alt": "Funge Rewards screen — Listing Rewards History modal showing daily points and rewards breakdown",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "Wallet and Payment UX: Reducing the Crypto Barrier"
+    },
+    {
+      "type": "paragraph",
+      "text": "Requiring users to own Polygon (MATIC) before their first purchase was a fundamental acquisition barrier. The new wallet system integrated credit and debit card purchasing with automatic conversion: users could think in dollars and the platform handled the crypto mechanics behind the scenes. Gas fee transparency was a direct response to research data: 87.7% of users had cited opaque gas fees as a pain point. Every transaction screen now shows a plain-language fee estimate before users commit."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537520/FRAME-12_aicczb.png",
+      "alt": "Funge Wallet screen — Total Balance dashboard with MATIC, ETH and LTO assets, portfolio donut chart and accounts list",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537521/FRAME-13_mzpvim.png",
+      "alt": "Funge Wallet — Deposit your crypto modal with QR code for wallet address",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537526/FRAME-14_gnninw.png",
+      "alt": "Funge Wallet — Select Currency modal showing Bitcoin, Tether and Matic options",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "Auction System: Designing for High-Stakes Interactions"
+    },
+    {
+      "type": "paragraph",
+      "text": "Auction UX is notoriously difficult because it requires users to make financial decisions under time pressure. Bad auction UX does not just frustrate users: it costs them money. The auction experience was designed around three principles: real-time status visibility, one-tap bid modification, and unambiguous outcome communication when auctions close."
+    },
+    {
+      "type": "paragraph",
+      "text": "Particular care was given to the post-auction state. All participants receive clear, specific notifications about the outcome, and losing bidders see their funds returned with explicit confirmation rather than a silent wallet credit."
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537527/FRAME-15_aijub0.png",
+      "alt": "Funge auction bid modal — MOONBIRDS #8145 showing current price, ETH offer amount, expiration and bid action",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537520/FRAME-16_rkrcyd.png",
+      "alt": "Funge analytics — Bored Ape Yacht Club sales floor, average and volume charts with NFT collections performance table",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "More Screens",
+      "anchor": "more-screens",
+      "no_label": true
+    },
+    {
+      "type": "subheading",
+      "text": "Onboarding and Authentication"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537524/FRAME-17_vn9skb.png",
+      "alt": "Funge onboarding — landing page with Create, Earn, and Connect hero and NFT image collage",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537524/FRAME-18_kaikzt.png",
+      "alt": "Funge onboarding — Sign In page with social login options and NFT image collage",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "Marketplace: Browse and Explore"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537526/FRAME-19_okdlwg.png",
+      "alt": "Funge marketplace — Browse view with NFT card grid, filters and category tabs",
+      "width": "contained"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537525/FRAME-20_jnqmeg.png",
+      "alt": "Funge marketplace — Trending NFTs ranked table with floor price, volume and change metrics",
+      "width": "contained"
+    },
+    {
+      "type": "subheading",
+      "text": "Messaging and Community"
+    },
+    {
+      "type": "image",
+      "src": "https://res.cloudinary.com/dbtws7amv/image/upload/v1774537526/FRAME-21_yfiiop.png",
+      "alt": "Funge messaging — Inbox view with community chat thread and creator conversation",
+      "width": "contained"
+    },
+    {
+      "type": "section_heading",
+      "text": "What Worked",
+      "anchor": "reflection",
+      "label": "REFLECTION"
+    },
+    {
+      "type": "paragraph",
+      "text": "The research-first approach was the right call, even though it delayed design work by three weeks. The alignment it created between the client's feature wishlist and a cleaner, evidence-backed prioritisation framework saved significantly more time later. Stakeholders who might have pushed back on certain feature de-prioritisations accepted the outcomes because they could see the user data behind them."
+    },
+    {
+      "type": "research_callout",
+      "variant": "default",
+      "items": [
+        "The competitive analysis surfaced the education gap as a genuine differentiator, not just a nice-to-have feature",
+        "Rebuilding the design system before designing features paid dividends in consistency and iteration speed",
+        "Embedding stakeholders in the Figma file throughout the process reduced late-stage surprises significantly"
+      ]
+    },
+    {
+      "type": "section_heading",
+      "text": "What I Would Change",
+      "anchor": "what-i-would-change",
+      "no_label": true,
+      "no_pt": true
+    },
+    {
+      "type": "bullet_list",
+      "items": [
+        "Earlier usability testing with beginner users. The personas were research-grounded, but I would want to validate the learning system flows with actual new-to-crypto participants before finalising the designs.",
+        "A more structured design critique process. The collaboration with Samuel was productive, but we ran on momentum rather than structured review cycles. Scheduled critique sessions with external designers would have caught more edge cases.",
+        "Tighter constraints on the feature set at the outset. The project grew in scope at several points. A more explicit MoSCoW prioritisation framework shared with the client earlier would have managed this more cleanly."
+      ]
+    },
+    {
+      "type": "section_heading",
+      "text": "The Sad Part",
+      "anchor": "the-sad-part",
+      "no_label": true,
+      "no_pt": true
+    },
+    {
+      "type": "paragraph",
+      "text": "Due to budget constraint on the client's side, I didn't see this project to when it was shipped."
+    }
+  ]
 }

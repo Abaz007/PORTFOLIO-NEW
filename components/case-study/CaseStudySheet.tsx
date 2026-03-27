@@ -59,7 +59,7 @@ export function CaseStudySheet({ study, prev, next }: Props) {
         </button>
 
         {/* Scrollable content inside the card */}
-        <div className="h-full overflow-y-auto overscroll-contain">
+        <div className="h-full overflow-y-auto overscroll-contain modal-scroll">
           <CaseStudyHero
             heroImage={study.hero_image}
             title={study.meta.title}
@@ -79,7 +79,7 @@ export function CaseStudySheet({ study, prev, next }: Props) {
             </article>
           </div>
 
-          <CaseStudyFooter prev={prev} next={next} />
+          <CaseStudyFooter prev={prev} next={next} isModal />
         </div>
       </div>
     </>
