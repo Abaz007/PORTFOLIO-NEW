@@ -10,8 +10,8 @@ export function StatRow({ stats }: StatRowBlock) {
   return (
     <div
       role="list"
-      className="grid gap-4"
-      style={{ gridTemplateColumns: `repeat(${stats.length}, minmax(0, 1fr))` }}
+      className="grid gap-4 grid-cols-2"
+      style={{ gridTemplateColumns: `repeat(auto-fill, minmax(140px, 1fr))` }}
     >
       {stats.map((stat, i) => (
         <div

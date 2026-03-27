@@ -13,7 +13,7 @@ function ArrowDown({ color }: { color: string }) {
 function FlowTable({ left_header, right_header, rows }: ComparisonTableBlock) {
   return (
     <div className="w-full border border-[#262626] p-[14px]">
-      <div className="flex gap-[14px]">
+      <div className="flex flex-col sm:flex-row gap-[14px]">
         {/* Left column */}
         <div className="flex-1 flex flex-col gap-[3px]">
           <div className="border border-[#262626] h-[46px] flex items-center justify-center px-6 py-4">
@@ -59,13 +59,13 @@ function StandardTable({ left_header, right_header, rows }: ComparisonTableBlock
   return (
     <div className="w-full overflow-hidden border border-[#262626]">
       {/* Header */}
-      <div className="grid grid-cols-2 border-b border-[#262626]">
-        <div className="px-6 py-3 h-11 flex items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 border-b border-[#262626]">
+        <div className="px-4 sm:px-6 py-3 h-11 flex items-center">
           <span className="font-mono font-light text-[12px] text-[#a3a3a3] leading-5">
             {left_header}
           </span>
         </div>
-        <div className="px-6 py-3 h-11 flex items-center border-l border-[#262626]">
+        <div className="px-4 sm:px-6 py-3 h-11 flex items-center sm:border-l border-t sm:border-t-0 border-[#262626]">
           <span className="font-mono font-light text-[12px] text-[#4ade80] leading-5">
             {right_header}
           </span>
@@ -75,14 +75,14 @@ function StandardTable({ left_header, right_header, rows }: ComparisonTableBlock
       {rows.map((row, i) => (
         <div
           key={i}
-          className={`grid grid-cols-2 min-h-[72px]${i < rows.length - 1 ? " border-b border-[#262626]" : ""}`}
+          className={`grid grid-cols-1 sm:grid-cols-2${i < rows.length - 1 ? " border-b border-[#262626]" : ""}`}
         >
-          <div className="px-6 py-4 flex items-center">
+          <div className="px-4 sm:px-6 py-4 flex items-center">
             <span className="font-mono font-light text-[12px] text-[#a3a3a3] leading-5">
               {row.left}
             </span>
           </div>
-          <div className="px-6 py-4 flex items-center border-l border-[#262626]">
+          <div className="px-4 sm:px-6 py-4 flex items-center sm:border-l border-t sm:border-t-0 border-[#262626]">
             <span className="font-mono font-light text-[12px] text-[#4ade80] leading-5">
               {row.right}
             </span>

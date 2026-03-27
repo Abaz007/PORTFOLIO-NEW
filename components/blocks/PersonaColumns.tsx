@@ -2,7 +2,7 @@ import type { PersonaColumnsBlock } from "@/lib/types";
 
 export function PersonaColumns({ columns }: PersonaColumnsBlock) {
   return (
-    <div className="w-full flex gap-6">
+    <div className="w-full flex flex-col sm:flex-row gap-6">
       {columns.map((col, i) => (
         <div key={i} className="flex-1 flex flex-col gap-1">
           {/* Label cell */}

@@ -127,13 +127,45 @@ export function FeaturedWork({ caseStudies }: Props) {
 
   return (
     <section
-      className="pb-28 select-none relative"
+      className="pb-28 relative"
       onMouseMove={onSectionMouseMove}
       onMouseLeave={() => {
         setIsHoveringCard(false);
         onDragEnd();
       }}
     >
+      {/* Mobile grid — visible below md, hidden on desktop */}
+      <div className="md:hidden px-4 sm:px-8 grid grid-cols-1 sm:grid-cols-2 gap-4 select-none">
+        {caseStudies.map((study) => (
+          <Link
+            key={study.slug}
+            href={`/case-study/${study.slug}`}
+            className="relative overflow-hidden rounded-[20px] bg-[#1e1e1e] block"
+            style={{ height: 260 }}
+          >
+            {study.meta.cover_video ? (
+              <video
+                src={study.meta.cover_video}
+                poster={study.meta.cover_image}
+                autoPlay muted loop playsInline preload="auto"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ) : (
+              <Image
+                src={study.meta.cover_image}
+                alt={study.meta.title}
+                fill unoptimized
+                className="object-cover"
+              />
+            )}
+            <div className="absolute inset-0 bg-black/50 flex flex-col items-start justify-end p-4">
+              <p className="font-body font-normal text-[14px] text-white leading-tight">{study.meta.title}</p>
+              <p className="font-body font-light text-[12px] text-white/60 mt-1">{study.meta.descriptor}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+      {/* Desktop carousel — hidden on mobile */}
       {/* Custom cursor */}
       <div
         ref={cursorRef}
@@ -147,7 +179,7 @@ export function FeaturedWork({ caseStudies }: Props) {
 
       <div
         ref={outerRef}
-        className="overflow-x-scroll overflow-y-hidden"
+        className="hidden md:block overflow-x-scroll overflow-y-hidden select-none"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",

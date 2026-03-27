@@ -24,7 +24,7 @@ export function CaseStudyHero({ heroImage, title, descriptor, role, timeline, in
           <p className="font-body text-[13px] text-[#737373] tracking-[0.6px] leading-[1.73] uppercase">
             Overview
           </p>
-          <h1 className="font-display text-[36px] text-[#d4d4d4] leading-[1.4]">
+          <h1 className="font-display text-[26px] sm:text-[32px] md:text-[36px] text-[#d4d4d4] leading-[1.4]">
             {title}
           </h1>
         </div>

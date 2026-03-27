@@ -5,7 +5,7 @@ const PROFILE_PHOTO = "https://www.figma.com/api/mcp/asset/ff0a0546-34e8-4534-aa
 
 export function Hero() {
   return (
-    <section className="max-w-[1440px] mx-auto px-[72px] pb-16" style={{ paddingTop: "calc(var(--nav-height) + 4rem)" }}>
+    <section className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-[72px] pb-16" style={{ paddingTop: "calc(var(--nav-height) + 2rem)" }}>
 
       {/* Profile photo with stacked card effect */}
       <div className="relative w-[116px] h-[143px] mb-10">
@@ -27,12 +27,12 @@ export function Hero() {
       </div>
 
       {/* Headline */}
-      <h1 className="font-display font-normal text-[40px] text-[#d4d4d4] leading-[1.14] mb-6 max-w-[885px]">
+      <h1 className="font-display font-normal text-[26px] sm:text-[32px] md:text-[40px] text-[#d4d4d4] leading-[1.14] mb-6 max-w-[885px]">
         {siteConfig.owner.tagline}
       </h1>
 
       {/* Bio */}
-      <p className="font-body font-light text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.6px] mb-16 max-w-[885px]">
+      <p className="font-body font-light text-[14px] md:text-[16px] text-[#a3a3a3] leading-[1.73] tracking-[0.6px] mb-16 max-w-[885px]">
         {siteConfig.owner.bio}
       </p>
 
