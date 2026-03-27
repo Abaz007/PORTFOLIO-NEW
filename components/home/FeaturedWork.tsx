@@ -9,17 +9,14 @@ type Props = {
   caseStudies: CaseStudy[];
 };
 
-const CARD_H = 500;
-const CARD_W = 680;
 const GAP = 16;
-const SPEED = 1.2; // px per animation frame (~72px/s at 60fps)
+const SPEED = 1.2;
 
 function WorkCard({ study, tabIndex }: { study: CaseStudy; tabIndex: number }) {
   return (
     <Link
       href={`/case-study/${study.slug}`}
-      className="group relative shrink-0 overflow-hidden rounded-[20px] bg-[#1e1e1e] block"
-      style={{ width: CARD_W, height: CARD_H }}
+      className="group relative shrink-0 overflow-hidden rounded-[20px] bg-[#1e1e1e] block w-[260px] h-[340px] sm:w-[420px] sm:h-[420px] md:w-[680px] md:h-[500px]"
       tabIndex={tabIndex}
       draggable={false}
     >
@@ -44,12 +41,12 @@ function WorkCard({ study, tabIndex }: { study: CaseStudy; tabIndex: number }) {
           draggable={false}
         />
       )}
-      {/* Hover overlay */}
-      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-6">
-        <p className="font-body font-normal text-[15px] text-white leading-tight">
+      {/* Overlay — always visible on mobile, hover-only on desktop */}
+      <div className="absolute inset-0 bg-black/50 md:bg-black/60 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4 md:p-6">
+        <p className="font-body font-normal text-[14px] md:text-[15px] text-white leading-tight">
           {study.meta.title}
         </p>
-        <p className="font-body font-light text-[13px] text-white/60 mt-1">
+        <p className="font-body font-light text-[12px] md:text-[13px] text-white/60 mt-1">
           {study.meta.descriptor}
         </p>
       </div>
@@ -66,7 +63,6 @@ export function FeaturedWork({ caseStudies }: Props) {
   const startScroll = useRef(0);
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isHoveringCard, setIsHoveringCard] = useState(false);
-  const mousePos = useRef({ x: 0, y: 0 });
 
   // Repeat 4× so the strip fills ultra-wide viewports seamlessly
   const repeated = [
@@ -80,7 +76,6 @@ export function FeaturedWork({ caseStudies }: Props) {
     const el = outerRef.current;
     if (el && !isDragging.current) {
       el.scrollLeft += SPEED;
-      // Seamless loop: reset when we've scrolled through half the total content
       const half = el.scrollWidth / 2;
       if (el.scrollLeft >= half) {
         el.scrollLeft -= half;
@@ -94,15 +89,12 @@ export function FeaturedWork({ caseStudies }: Props) {
     return () => cancelAnimationFrame(rafRef.current);
   }, [animate]);
 
-  // Track mouse position for custom cursor
+  // Mouse handlers
   function onSectionMouseMove(e: React.MouseEvent<HTMLElement>) {
-    mousePos.current = { x: e.clientX, y: e.clientY };
     if (cursorRef.current) {
       cursorRef.current.style.left = `${e.clientX}px`;
       cursorRef.current.style.top = `${e.clientY}px`;
     }
-
-    // Also handle drag
     if (!isDragging.current) return;
     const dx = startX.current - e.clientX;
     if (Math.abs(dx) > 4) hasDragged.current = true;
@@ -120,56 +112,42 @@ export function FeaturedWork({ caseStudies }: Props) {
     isDragging.current = false;
   }
 
-  // Prevent link navigation when user was dragging (not just clicking)
   function onClickCapture(e: React.MouseEvent) {
     if (hasDragged.current) e.preventDefault();
   }
 
+  // Touch handlers for mobile
+  function onTouchStart(e: React.TouchEvent<HTMLDivElement>) {
+    isDragging.current = true;
+    hasDragged.current = false;
+    startX.current = e.touches[0].clientX;
+    startScroll.current = outerRef.current?.scrollLeft ?? 0;
+  }
+
+  function onTouchMove(e: React.TouchEvent<HTMLDivElement>) {
+    if (!isDragging.current) return;
+    const dx = startX.current - e.touches[0].clientX;
+    if (Math.abs(dx) > 4) hasDragged.current = true;
+    if (outerRef.current) outerRef.current.scrollLeft = startScroll.current + dx;
+  }
+
+  function onTouchEnd() {
+    isDragging.current = false;
+  }
+
   return (
     <section
-      className="pb-28 relative"
+      className="pb-28 select-none relative"
       onMouseMove={onSectionMouseMove}
       onMouseLeave={() => {
         setIsHoveringCard(false);
         onDragEnd();
       }}
     >
-      {/* Mobile grid — visible below md, hidden on desktop */}
-      <div className="md:hidden px-4 sm:px-8 grid grid-cols-1 sm:grid-cols-2 gap-4 select-none">
-        {caseStudies.map((study) => (
-          <Link
-            key={study.slug}
-            href={`/case-study/${study.slug}`}
-            className="relative overflow-hidden rounded-[20px] bg-[#1e1e1e] block"
-            style={{ height: 260 }}
-          >
-            {study.meta.cover_video ? (
-              <video
-                src={study.meta.cover_video}
-                poster={study.meta.cover_image}
-                autoPlay muted loop playsInline preload="auto"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            ) : (
-              <Image
-                src={study.meta.cover_image}
-                alt={study.meta.title}
-                fill unoptimized
-                className="object-cover"
-              />
-            )}
-            <div className="absolute inset-0 bg-black/50 flex flex-col items-start justify-end p-4">
-              <p className="font-body font-normal text-[14px] text-white leading-tight">{study.meta.title}</p>
-              <p className="font-body font-light text-[12px] text-white/60 mt-1">{study.meta.descriptor}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
-      {/* Desktop carousel — hidden on mobile */}
-      {/* Custom cursor */}
+      {/* Custom cursor — desktop only */}
       <div
         ref={cursorRef}
-        className="pointer-events-none fixed z-50 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
+        className="hidden md:block pointer-events-none fixed z-50 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
         style={{ opacity: isHoveringCard && !isDragging.current ? 1 : 0 }}
       >
         <div className="bg-[#121212] text-white font-mono font-light text-[13px] tracking-[0.3px] px-5 py-3 rounded-full whitespace-nowrap">
@@ -179,7 +157,7 @@ export function FeaturedWork({ caseStudies }: Props) {
 
       <div
         ref={outerRef}
-        className="hidden md:block overflow-x-scroll overflow-y-hidden select-none"
+        className="overflow-x-scroll overflow-y-hidden"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -190,6 +168,9 @@ export function FeaturedWork({ caseStudies }: Props) {
         onClickCapture={onClickCapture}
         onMouseEnter={() => setIsHoveringCard(true)}
         onMouseLeave={() => setIsHoveringCard(false)}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
       >
         <div
           style={{
