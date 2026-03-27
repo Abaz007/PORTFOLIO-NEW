@@ -58,7 +58,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-new-sepia-seven.vercel.app"),
+  metadataBase: new URL("https://www.abazdesigns.com"),
   title: {
     default: `${siteConfig.owner.name} — ${siteConfig.owner.title}`,
     template: `%s · ${siteConfig.owner.name}`,
