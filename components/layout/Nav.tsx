@@ -76,7 +76,7 @@ export function Nav() {
 
       {/* Mobile dropdown menu */}
       <div
-        className={`md:hidden fixed left-0 right-0 z-40 bg-[#121212]/98 backdrop-blur-sm border-b border-[#252525] transition-all duration-300 ease-in-out overflow-hidden ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`md:hidden fixed left-0 right-0 z-40 bg-[#121212]/98 backdrop-blur-sm border-b border-[#252525] transition-opacity duration-300 ease-in-out ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         style={{ top: "var(--nav-height)" }}
       >
         <div className="px-4 sm:px-8 py-6 flex flex-col gap-5">
@@ -91,10 +91,10 @@ export function Nav() {
           </a>
           <a
             href={`mailto:${siteConfig.owner.email}`}
-            className="self-start flex items-center justify-center border border-[#a3a3a3] rounded-[1000px] px-6 py-3 hover:border-[#d4d4d4] transition-colors duration-300"
+            className="self-start flex items-center justify-center border border-[#d4d4d4] rounded-[1000px] px-6 py-3 hover:border-white transition-colors duration-300"
             onClick={() => setMenuOpen(false)}
           >
-            <span className="font-bricolage font-light text-[15px] text-[#a3a3a3] hover:text-[#d4d4d4] transition-colors duration-300 whitespace-nowrap">
+            <span className="font-bricolage font-light text-[15px] text-[#d4d4d4] hover:text-white transition-colors duration-300 whitespace-nowrap">
               Let&apos;s Talk
             </span>
           </a>

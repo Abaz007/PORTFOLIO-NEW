@@ -19,9 +19,9 @@ export const siteConfig = {
   // Order here = order on page. Max 6 slugs.
   featuredWork: [
     "root-by-sudo",
-    "safe-haven-mfb",
-    "halcyon",
-    "nova-pay",
+    "fixed-deposit",
+    "funge",
+    "safehaven-ibs",
   ],
 
   // Homepage marquee: top row (scrolls left)
@@ -34,12 +34,12 @@ export const siteConfig = {
     {
       image: "https://res.cloudinary.com/abasifreke/image/upload/w_400,q_auto,f_auto/v1/portfolio/safe-haven/cover.png",
       name:  "Safe Haven MFB",
-      slug:  "safe-haven-mfb",
+      slug:  "fixed-deposit",
     },
     {
       image: "https://res.cloudinary.com/abasifreke/image/upload/w_400,q_auto,f_auto/v1/portfolio/halcyon/cover.png",
       name:  "Halcyon",
-      slug:  "halcyon",
+      slug:  "funge",
     },
     // Add more items — they repeat infinitely in the marquee
   ],
@@ -49,12 +49,12 @@ export const siteConfig = {
     {
       image: "https://res.cloudinary.com/abasifreke/image/upload/w_400,q_auto,f_auto/v1/portfolio/halcyon/cover.png",
       name:  "Halcyon",
-      slug:  "halcyon",
+      slug:  "funge",
     },
     {
       image: "https://res.cloudinary.com/abasifreke/image/upload/w_400,q_auto,f_auto/v1/portfolio/safe-haven/cover.png",
       name:  "Safe Haven MFB",
-      slug:  "safe-haven-mfb",
+      slug:  "fixed-deposit",
     },
     {
       image: "https://res.cloudinary.com/abasifreke/image/upload/w_400,q_auto,f_auto/v1/portfolio/root/cover.png",
