@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[#252525] py-10">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-[72px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <p className="font-body font-light text-[14px] text-[#525252] tracking-[0.6px]">
+        <p className="font-body font-light text-[14px] text-[#737373] tracking-[0.6px]">
           © {year} {siteConfig.owner.name}
         </p>
         <div className="flex items-center gap-6">

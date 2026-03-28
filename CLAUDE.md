@@ -110,3 +110,25 @@ The TypeScript exhaustiveness check in `BlockRenderer` (`const _exhaustive: neve
 ### Cloudinary
 
 All image/video URLs in JSON are full Cloudinary URLs. Use plain `<img>` tags (not `next/image`) for Cloudinary URLs — external domains not listed in `next.config.ts` `images.domains` will throw at runtime. `lib/cloudinary.ts` exports a `cld` helper but most URLs are hardcoded in JSON.
+
+### Mobile responsiveness
+
+The site is mobile-first. The standard horizontal padding pattern used across all top-level sections is `px-4 sm:px-8 md:px-[72px]` — this aligns content with the hero's "Selected Projects" label on all screen sizes. Never use a fixed `px-[72px]` without responsive prefixes.
+
+**Nav** is a client component (`"use client"`) with a hamburger menu on mobile. On `md+` the full nav (resume link + Let's Talk button) is shown. Below `md`, a 3-line hamburger toggles a dropdown containing those same items. The dropdown closes on scroll, backdrop tap, or link click.
+
+**FeaturedWork carousel** runs on all screen sizes — there is no separate mobile grid. Card sizes are responsive via Tailwind classes: `w-[260px] h-[340px]` on mobile → `w-[420px] h-[420px]` on tablet → `w-[680px] h-[500px]` on desktop. Touch drag is supported via `onTouchStart/Move/End` handlers. The hover overlay is always visible on mobile (no hover state on touch) and switches to hover-only on `md+`. The custom "View Case Study" cursor pill is hidden on mobile.
+
+**Block components** — responsive behaviour:
+- `ComparisonTable` (standard): stacks to 1 column on mobile, 2-col on `sm+`
+- `ComparisonTable` (flow): `flex-col` on mobile, `flex-row` on `sm+`
+- `KeyInsights` (table): shows stacked card-per-row on mobile, 3-col grid on `sm+`
+- `PersonaColumns`: `flex-col` on mobile, `flex-row` on `sm+`
+- `StatRow`: uses `auto-fill` grid so columns wrap naturally on smaller screens
+
+### Deployment
+
+- **Production domain**: `www.abazdesigns.com` (DNS via Namecheap → Vercel)
+- **Vercel project**: `portfolio-new` (GitHub repo: `Abaz007/PORTFOLIO-NEW`)
+- **Production branch**: `main` — every push to `main` triggers an automatic Vercel deploy
+- `metadataBase` in `app/layout.tsx` is set to `https://www.abazdesigns.com` for correct social preview URLs
