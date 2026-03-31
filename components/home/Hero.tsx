@@ -1,7 +1,7 @@
 import { siteConfig } from "@/site.config";
 
 // ★ Replace with your Cloudinary profile photo URL once uploaded
-const PROFILE_PHOTO = "https://www.figma.com/api/mcp/asset/ff0a0546-34e8-4534-aa97-82de6430d529";
+const PROFILE_PHOTO = "https://res.cloudinary.com/dbtws7amv/image/upload/f_auto,q_auto/v1774915629/7BD48AD5-724C-4CD0-8996-2A558FE9ED28_1_201_a_v34tpv.heic";
 
 export function Hero() {
   return (
