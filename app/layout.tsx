@@ -6,6 +6,7 @@ import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/site.config";
 import { Agentation } from "agentation";
+import { Analytics } from "@vercel/analytics/next";
 
 // Serif — Recoleta (local, multiple weights via woff2)
 const recoleta = localFont({
@@ -89,6 +90,7 @@ export default function RootLayout({
         <Footer />
         {modal}
         {process.env.NODE_ENV === "development" && <Agentation />}
+        <Analytics />
       </body>
     </html>
   );
